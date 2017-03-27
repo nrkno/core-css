@@ -1,0 +1,33 @@
+{
+  "name": "@nrk/core-css",
+  "homepage": "https://nrkno.github.io/core-css/",
+  "description": "Core CSS layer for web services.",
+  "author": "NRK <opensource@nrk.no> (https://www.nrk.no/)",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "node bin/build",
+    "prebuild": "rimraf dist && mkdirp dist && cpx 'src/*.html' dist/",
+    "publish:patch": "npm version patch -m 'Release patch %s' && npm run push",
+    "publish:minor": "npm version minor -m 'Release minor %s' && npm run push",
+    "publish:major": "npm version major -m 'Release major %s' && npm run push",
+    "push": "git push && git push --tags && npm publish",
+    "static-publish": "static-publish publish --directory ./dist --package ./package.json --verbose --latest",
+    "watch": "npm run build -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nrkno/core-css.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nrkno/core-css/issues"
+  },
+  "devDependencies": {
+    "@nrk/static-publish-cli": "^3.0.2",
+    "cpx": "^1.5.0",
+    "eslint": "^3.18.0",
+    "eslint-config-nrk": "^5.1.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.1"
+  }
+}

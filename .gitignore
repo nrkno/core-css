@@ -1,0 +1,4 @@
+.DS_Store
+/npm-debug*
+/node_modules
+/yarn-error*
