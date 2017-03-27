@@ -1,6 +1,6 @@
 {
   "name": "@nrk/core-css",
-  "homepage": "https://nrkno.github.io/core-css/",
+  "homepage": "https://static.nrk.no/core-css/latest/",
   "description": "Core CSS layer for web services.",
   "author": "NRK <opensource@nrk.no> (https://www.nrk.no/)",
   "version": "1.0.0",
