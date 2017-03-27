@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>core-css</title>
+  <title>@nrk/core-css</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css">
   <link rel="stylesheet" href="core-css.css">
   <style>
     body { transition: background-color .5s }
 
-    /* Docs-specific CSS (extends core-css) */
+    /* Docs-specific CSS (extends @nrk/core-css) */
     .docs-container { margin: auto; padding: 1rem; max-width: 1080px }
     .docs-content { padding-bottom: 15%; outline: 0 } /* Focusable without outline */
     .docs-content > hr { margin: 3rem 0 2rem 0; padding: 0; border: 0; border-top: 1px solid; opacity: .1 }
@@ -62,8 +62,8 @@
 
       <h2 id="philosophy">Philosophy</h2>
       <p>
-        <a href="https://github.com/nrkno/core-css">core-css</a> is the base CSS framework for NRK. It is not a framework that provides solutions for all use cases, but instead exposes a thin foundation for styling screens and view components.
-        core-css uses namespacing, which makes it safe to include in your existing code base.
+        <a href="https://github.com/nrkno/core-css">@nrk/core-css</a> is the core CSS layer for NRK. It is not a framework that provides solutions for all use cases, but instead exposes a thin foundation for styling screens and view components.
+        @nrk/core-css uses namespacing, which makes it safe to include in your existing code base.
       </p>
       <hr />
 
@@ -71,7 +71,7 @@
 
       <h2 id="grid">Grid and sizing</h2>
       <p>
-        core-css consist of three major components: <code class="language-css">.nrk-grid</code>
+        @nrk/core-css consist of three major components: <code class="language-css">.nrk-grid</code>
         (flexbox based with inline-block fallback),
         <code class="language-css">.nrk-container</code> for standardized page-width, and 12 fluid
         size units. Units are prefixed with <code class="language-css">.nrk-xs-, .nrk-sm-, .nrk-md-, .nrk-lg-</code>
@@ -155,7 +155,7 @@
 
       <h2 id="utilities">Utilities</h2>
       <p>
-        Accessibility considerations is a part of core-css styling.
+        Accessibility considerations is a part of @nrk/core-css styling.
         Hide an element to all devices except screen readers with
         <code class="language-css">.nrk-sr</code>, or make it show on focus
         by using <code class="language-css">.nrk-sr-focus</code>.
@@ -168,6 +168,7 @@
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+  <script src="https://static.nrk.no/core-icons/1.0.0/core-icons.min.js"></script>
   <script>
     // Import html-markup
     [].forEach.call(document.querySelectorAll('[data-markup]'), function(el){
