@@ -5,7 +5,11 @@ Core CSS layer for web services.
 
 ### Install via static.nrk.no (preferred)
 ```html
-<link rel="https://static.nrk.no/core-css/1.0.0/core-css.min.css">
+<link rel="stylesheet" href="https://static.nrk.no/core-css/latest/core-css.min.css">
+```
+or version
+```html
+<link rel="stylesheet" href="https://static.nrk.no/core-css/X.X.X/core-css.min.css">
 ```
 
 ### Install via `npm`
