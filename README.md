@@ -21,6 +21,19 @@ npm install @nrk/core-css --save
 @import '@nrk/core-css/dist/core-css.css';
 ```
 
+## Adding fonts and icons
+
+In order to use NRKs core fonts and icons, see these related projects:  
+https://github.com/nrkno/core-fonts  
+https://github.com/nrkno/core-icons  
+
+Once the fonts (*LFT Etica* and *NRK Etica Slab*) have been imported, add this to your project’s CSS:
+```css
+html {
+  font-family: 'LFT Etica', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+```
+
 ## Local development
 First clone `@nrk/core-css` and install dependencies:
 

@@ -2,7 +2,7 @@
 ---------------------------------------------------------------- */
 html {
   cursor: default;
-  font: 100%/1.5 'LFT Etica', 'Helvetica Neue', Arial, sans-serif;
+  font: 100%/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-size-adjust: 100%;           /* Mobile font size */
   font-feature-settings: "liga" 0;  /* Prevent ligatures */
   text-rendering: optimizeSpeed;    /* Prevent ligatures */
