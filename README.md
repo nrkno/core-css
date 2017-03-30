@@ -12,9 +12,14 @@ or version
 <link rel="stylesheet" href="https://static.nrk.no/core-css/X.X.X/core-css.min.css">
 ```
 
-### Install via `npm`
+### Install with `npm`
 ```bash
-npm install @nrk/core-css --save
+npm install @nrk/core-css --no-optional --save
+```
+
+### Install with `yarn`
+```bash
+yarn add @nrk/core-css
 ```
 
 ```css
