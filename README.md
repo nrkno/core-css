@@ -14,7 +14,7 @@ or version
 
 ### Install with `npm`
 ```bash
-npm install @nrk/core-css --no-optional --save
+npm install @nrk/core-css --save
 ```
 
 ### Install with `yarn`
@@ -32,7 +32,7 @@ First clone `@nrk/core-css` and install dependencies:
 ```bash
 git clone git@github.com:nrkno/core-css.git
 cd core-css
-npm install
+npm install --no-optional
 ```
 
 In order to preview the documentation and watch code changes, start the development server:
