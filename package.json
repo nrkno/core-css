@@ -5,9 +5,14 @@
   "author": "NRK <opensource@nrk.no> (https://www.nrk.no/)",
   "version": "1.0.0",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "node bin/build",
     "prebuild": "rimraf dist && mkdirp dist && cpx 'src/*.html' dist/",
+    "prepublish": "npm run build",
+    "prestatic-publish": "npm run build",
     "publish:patch": "npm version patch -m 'Release patch %s' && npm run push",
     "publish:minor": "npm version minor -m 'Release minor %s' && npm run push",
     "publish:major": "npm version major -m 'Release major %s' && npm run push",
