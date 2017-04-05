@@ -1,4 +1,4 @@
-/*! Copyright (c) 2015–2017 NRK <opensource@nrk.no> */
+/*! Copyright (c) 2015-2017 NRK <opensource@nrk.no> */
 /* Base
 ---------------------------------------------------------------- */
 html {
@@ -10,6 +10,7 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 body, img, svg, a { margin: 0; border: 0; color: inherit; fill: currentColor }
+svg > use > svg {  fill: inherit; } /* Workaround for FF bug: https://bugzilla.mozilla.org/show_bug.cgi?id=265894 */
 button, select, a, input, label, textarea { touch-action: manipulation } /* FastClick */
 button, select { cursor: pointer }
 
