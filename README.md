@@ -12,9 +12,14 @@ or version
 <link rel="stylesheet" href="https://static.nrk.no/core-css/X.X.X/core-css.min.css">
 ```
 
-### Install via `npm`
+### Install with `npm`
 ```bash
 npm install @nrk/core-css --save
+```
+
+### Install with `yarn`
+```bash
+yarn add @nrk/core-css
 ```
 
 ```css
@@ -40,7 +45,7 @@ First clone `@nrk/core-css` and install dependencies:
 ```bash
 git clone git@github.com:nrkno/core-css.git
 cd core-css
-npm install
+npm install --no-optional
 ```
 
 In order to preview the documentation and watch code changes, start the development server:
