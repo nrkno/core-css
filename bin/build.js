@@ -19,7 +19,7 @@ const throttle = (fn, ms = 300) => {
 
 const minifyCss = (css) => String(css)              // Work with file as string
   .replace(/\/\*[^!][^*]*\*\//g, '')                // Strip comments
-  .replace(/\s*(^|[:;,{}/]|$)\s*/g, '$1');           // Strip white space around tokens
+  .replace(/\s*(^|[>:;,{}/]|$)\s*/g, '$1');           // Strip white space around tokens
 
 const buildCss = () => Promise
   .resolve(fs.readFileSync(path.join(SRC_PATH, CSS_FILENAME)))
