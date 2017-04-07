@@ -21,6 +21,8 @@
     .docs-icons svg { display: block; pointer-events: none; margin: auto; height: 30px; width: 50% }
     .docs-icons a { position: relative; padding: 15px; white-space: nowrap; transition: .2s }
     .docs-icons a:active { z-index: 2; transform: scale(.9) }
+    .docs-svg .pad > * { padding: 10px }
+
 
     .nrk-color-super { background: #009fbb; color: #fff }  /* For demo only */
     .nrk-color-invert pre, .nrk-color-invert :not(pre) > code { -webkit-filter: invert(100%); filter: invert(100%) }
@@ -153,6 +155,70 @@
       <p class="docs-color nrk-color-shade-4">.nrk-color-shade-4 { color: #26292a; background-color: #c8c8c8 }</p>
       <hr />
 
+
+
+      <h2 id="svg-icons">SVG icon colors</h2>
+
+      <div class="docs-svg">
+        <p>
+          All SVGs are by default filled with the inherited color property. Try our color picker at the left!
+        </p>
+        <div class="nrk-grid">
+          <div class="nrk-xs-6of12 ">
+            <div class="docs-svg1">
+              Settings
+              <button class="nrk-button nrk-button--o">
+                <svg>
+                  <use xlink:href="#nrk-settings--on"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <pre><code data-markup=".docs-svg1" class="language-markup"></code></pre>
+
+
+        <p>
+          SVGs will inherit the color from the closest parent.
+          By setting the color on the wrapping element, the SVG will inherit that color property.
+        </p>
+        <div class="nrk-grid">
+          <div class="nrk-xs-12of12 pad">
+            <div class="docs-svg2 nrk-color-invert">
+              Settings
+              <button class="nrk-button nrk-button--o">
+                <svg>
+                  <use xlink:href="#nrk-settings--on"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <pre><code data-markup=".docs-svg2" class="language-markup"></code></pre>
+
+
+        <p>
+          By setting the color-property you can choose whatever color you'd like.
+        </p>
+        <div class="nrk-grid">
+          <div class="nrk-xs-12of12 pad">
+            <div class="docs-svg3 nrk-color-invert">
+              Settings
+              <button style="color: deeppink" class="nrk-button nrk-button--o">
+                <svg>
+                  <use xlink:href="#nrk-settings--on"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <pre><code data-markup=".docs-svg3" class="language-markup"></code></pre>
+      </div>
+
+      <hr/>
 
 
       <h2 id="utilities">Utilities</h2>
