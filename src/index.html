@@ -235,13 +235,11 @@
       </p>
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
-  <script src="https://static.nrk.no/core-icons/1.0.0/core-icons.min.js"></script>
   <script>
-    // Import html-markup
-    [].forEach.call(document.querySelectorAll('[data-markup]'), function(el){
+  // Import html-markup
+    Array.from(document.querySelectorAll('[data-markup]')).forEach((el) => {
       el.textContent = document.querySelector(el.getAttribute('data-markup')).outerHTML.split('\n').reduce(function(r, v, k){
-        return r.concat(k? v.replace(el.strip = el.strip || new RegExp('^[\\s|\\t]{' + Math.max(0, String(v.match(/^[\s\t]+/) || '').length-1) + '}'), '') : v);
+        return r.concat(k? v.replace(el.strip = el.strip || new RegExp('^[\\s|\\t]{' + Math.max(0, String(v.match(/^[\s\t]+/) || '').length-2) + '}'), '') : v);
       },[]).join('\n').replace(/docs-\w+\s*/g,'').replace(' class=""','').trim(); //Hide docs-classes
     });
 
@@ -252,15 +250,8 @@
       }
     });
 
-    // Livereload CSS
-    if(window.EventSource)(function(){
-      var source = new EventSource('http://localhost:35729');
-      source.onerror = function(){source.close()} //Close if livereload not running
-      source.onmessage = function(event){
-        var link = document.querySelector('link[href*="' + event.data + '"]');
-        if(link)link.href = link.href.split('?')[0] + '?' + Date.now();
-      };
-    })();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+  <script src="https://static.nrk.no/core-icons/1.0.0/core-icons.min.js"></script>
 </body>
 </html>
