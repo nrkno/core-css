@@ -10,15 +10,16 @@
   <style>
     body { padding: 70px 0; min-height: 100vh; font: 16px/1.5 'LFT Etica',sans-serif }
     body::after{content:'';position:fixed;top:0;left:0;right:0;bottom:0;z-index:-1;background:inherit} /* Fixes invert: https://bugs.chromium.org/p/chromium/issues/detail?id=340168 */
+    h2 { font-size: 13px; margin: 2em 0 -1em; text-transform: uppercase }
     input, select, textarea { font: inherit }
 
     .docs-container { margin: auto; padding: 0 10px; max-width: 1200px }
     .docs-masthead { position: fixed; z-index: 3; top: 0; left: 0; right: 0; box-shadow: 0 0 2px rgba(0,0,0,.5) }
     .docs-masthead li { padding-right: 14px; font-size: 14px; line-height: 44px }
 
-    /* Docs-specific CSS (extends @nrk/core-css) */
     .docs-content { padding-bottom: 15%; outline: 0 } /* Focusable without outline */
-    .docs-content > hr { margin: 3rem 0 2rem 0; padding: 0; border: 0; border-top: 1px solid; opacity: .1 }
+    .docs-content h2 { padding: 70px 0 30px; font-size: 24px; border-top: 1px solid #f6f6f6; text-transform: none }
+    .docs-content h2:first-child { padding-top: 0; border-top: 0; margin-top: 20px }
     .docs-grid > * { box-sizing: border-box; padding: 3px 9px; box-shadow: inset 0 0 0 1px #eee }
     .docs-color { padding: 1em; font:.8em/1 monospace; box-shadow: 0 2px 3px rgba(0,0,0,.3) }
     .docs-svg .pad > * { padding: 10px }
@@ -31,35 +32,21 @@
     <ul class="docs-container nrk-grid">
       <li><a target="_top" href="https://github.com/nrkno/core-css">Github</a></li>
       <li><a target="_top" href="https://github.com/nrkno/core-css/archive/master.zip">Download</a></li>
-      <li><a href="#philosophy">Philosophy</a></li>
-      <li><a href="#grid">Grid and sizing</a></li>
-      <li><a href="#button">Button</a></li>
-      <li><a href="#pagination">Pagination</a></li>
-      <li><a href="#colors">Colors</a></li>
-      <li><a href="#utilities">Utilities</a></li>
     </ul>
   </header>
 <div class="nrk-grid docs-container">
-    <div class="nrk-xs-12of12 nrk-sm-3of12">
+    <div class="nrk-xs-12of12 nrk-sm-3of12" style="padding-right:30px">
+      <h2>@nrk/core-css</h2>
+      <p>This is the core CSS layer for NRK. It is not a framework that provides solutions for all use cases, but instead exposes a thin foundation.</p>
       <p><label><input type="checkbox" name="invert" onchange="document.body.style.filter=this.checked?'invert(1)':''"> Show negative</label></p>
     </div>
-    <div class="docs-content nrk-xs-12of12 nrk-sm-9of12" id="content" tabindex="-1">
-      <h1>@nrk/core-css</h1>
-
-      <h2 id="philosophy">Philosophy</h2>
+    <div class="docs-content nrk-xs-12of12 nrk-sm-9of12">
+      <h2>Namespacing</h2>
+      <p><code class="language-css">@nrk/core-css</code> namespaces all classes with <code class="language-css">.nrk-grid</code>, to make it safer to include in your existing code base.</p>
+      <h2>Grid and sizing</h2>
       <p>
-        <a href="https://github.com/nrkno/core-css">@nrk/core-css</a> is the core CSS layer for NRK. It is not a framework that provides solutions for all use cases, but instead exposes a thin foundation for styling screens and view components.
-        @nrk/core-css uses namespacing, which makes it safe to include in your existing code base.
-      </p>
-      <hr />
-
-
-
-      <h2 id="grid">Grid and sizing</h2>
-      <p>
-        @nrk/core-css consist of three major components: <code class="language-css">.nrk-grid</code>
-        (flexbox based with inline-block fallback),
-        <code class="language-css">.nrk-container</code> for standardized page-width, and 12 fluid
+        The grid consist of two major components: <code class="language-css">.nrk-grid</code>
+        (flexbox based with inline-block fallback), and 12 fluid
         size units. Units are prefixed with <code class="language-css">.nrk-xs-, .nrk-sm-, .nrk-md-, .nrk-lg-</code>
         based on minimum widths, meaning they also apply to all sizes above unless other is specified
         (e.g., .nrk-xs-4 applies to extra small, small, medium and large devices). Rows wrap automatically.
@@ -78,18 +65,17 @@
         <div class="nrk-xs-12of12">12</div>
       </div>
       <pre><code data-markup=".docs-grid" class="language-markup"></code></pre>
+      <h2>Fill screen width</h2>
       <p>
-        <strong>Tip:</strong> If you need to break out of a <code class="language-css">.nrk-container</code>
-        and fill the entire screen width (even when inside <code class="language-css">.nrk-grid</code>),
-        you can use the <code class="language-css">.nrk-xs-100</code> class. NB: Make sure there is
+        If you need to break out of a centered container
+        and fill the entire screen width,
+        you can use the class <code class="language-css">.nrk-xs-100</code>. NB: Make sure there is
         a wrapper element in body with <code class="language-css">overflow:hidden</code> to prevent
         <code class="language-css">.nrk-xs-100</code> from causing horizontal scrollbars.
       </p>
-      <hr />
 
 
-
-      <h2 id="button">Button</h2>
+      <h2>Button</h2>
       <div class="docs-button">
         <a class="nrk-button" href="#">Link (default)</a>
         <button class="nrk-button">Button (default)</button>
@@ -102,11 +88,10 @@
         <button class="nrk-button nrk-button--o"><svg><use xlink:href="#nrk-close" /></svg></button>
       </div>
       <pre><code data-markup=".docs-button" class="language-markup"></code></pre>
-      <hr />
 
 
 
-      <h2 id="pagination">Pagination</h2>
+      <h2>Pagination</h2>
       <div class="docs-pagination">
         <div class="nrk-pagination">
           <button class="nrk-button">1</button>
@@ -123,11 +108,9 @@
         </div>
       </div>
       <pre><code data-markup=".docs-pagination" class="language-markup"></code></pre>
-      <hr />
 
 
-
-      <h2 id="colors">Colors</h2>
+      <h2>Colors</h2>
       <p class="docs-color nrk-color-base">.nrk-color-base { color: #26292a; background-color: #fff }</p>
       <p class="docs-color nrk-color-spot">.nrk-color-spot { color: #26292a; background-color: #00b9f2 }</p>
       <p class="docs-color nrk-color-invert">.nrk-color-invert { color: #fff; background-color: #141517 }</p>
@@ -135,29 +118,21 @@
       <p class="docs-color nrk-color-shade-2">.nrk-color-shade-2 { color: #26292a; background-color: #e9e9e9 }</p>
       <p class="docs-color nrk-color-shade-3">.nrk-color-shade-3 { color: #26292a; background-color: #e0e0e0 }</p>
       <p class="docs-color nrk-color-shade-4">.nrk-color-shade-4 { color: #26292a; background-color: #c8c8c8 }</p>
-      <hr />
 
 
-
-      <h2 id="svg-icons">SVG icon colors</h2>
-
+      <h2>Icons</h2>
       <div class="docs-svg">
-        <p>
-          All SVGs are by default filled with the inherited color property. Try our color picker at the left!
-        </p>
+        <p>All SVGs are by default filled with the inherited color property. Try our color picker at the left!</p>
         <div class="nrk-grid">
           <div class="nrk-xs-6of12 ">
             <div class="docs-svg1">
               Settings
               <button class="nrk-button nrk-button--o">
-                <svg>
-                  <use xlink:href="#nrk-settings--on"/>
-                </svg>
+                <svg><use xlink:href="#nrk-settings" /></svg>
               </button>
             </div>
           </div>
         </div>
-
         <pre><code data-markup=".docs-svg1" class="language-markup"></code></pre>
 
 
@@ -170,9 +145,7 @@
             <div class="docs-svg2 nrk-color-invert">
               Settings
               <button class="nrk-button nrk-button--o">
-                <svg>
-                  <use xlink:href="#nrk-settings--on"/>
-                </svg>
+                <svg><use xlink:href="#nrk-settings" /></svg>
               </button>
             </div>
           </div>
@@ -181,17 +154,13 @@
         <pre><code data-markup=".docs-svg2" class="language-markup"></code></pre>
 
 
-        <p>
-          By setting the color-property you can choose whatever color you'd like.
-        </p>
+        <p>By setting the color-property you can choose whatever color you'd like.</p>
         <div class="nrk-grid">
           <div class="nrk-xs-12of12 pad">
             <div class="docs-svg3 nrk-color-invert">
               Settings
               <button style="color: deeppink" class="nrk-button nrk-button--o">
-                <svg>
-                  <use xlink:href="#nrk-settings--on"/>
-                </svg>
+                <svg><use xlink:href="#nrk-settings" /></svg>
               </button>
             </div>
           </div>
@@ -200,10 +169,7 @@
         <pre><code data-markup=".docs-svg3" class="language-markup"></code></pre>
       </div>
 
-      <hr/>
-
-
-      <h2 id="utilities">Utilities</h2>
+      <h2>Accessibility</h2>
       <p>
         Accessibility considerations is a part of @nrk/core-css styling.
         Hide an element to all devices except screen readers with
@@ -218,20 +184,19 @@
     </div>
   </div>
   <script>
-  // Import html-markup
+    //Import html-markup
     Array.from(document.querySelectorAll('[data-markup]')).forEach((el) => {
       el.textContent = document.querySelector(el.getAttribute('data-markup')).outerHTML.split('\n').reduce(function(r, v, k){
         return r.concat(k? v.replace(el.strip = el.strip || new RegExp('^[\\s|\\t]{' + Math.max(0, String(v.match(/^[\s\t]+/) || '').length-2) + '}'), '') : v);
       },[]).join('\n').replace(/docs-\w+\s*/g,'').replace(' class=""','').trim(); //Hide docs-classes
     });
 
-    // Activate dev-tool switches
-    document.addEventListener('change', function(e){
-      if(e.target.name === 'color'){
-        document.body.className = document.body.className.replace(/nrk-color-[^-]+/,'') + ' ' + e.target.value;
-      }
-    });
-
+    //Generate menu
+    document.querySelector('.docs-masthead ul').insertAdjacentHTML('beforeend',
+      Array.from(document.querySelectorAll('.docs-content h2')).map((el) => {
+        el.id = el.textContent.toLowerCase().replace(/\W/g, '');
+        return `<li><a href="#${el.id}">${el.textContent}</a></li>`;
+      }).join(''));
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
   <script src="https://static.nrk.no/core-icons/1.0.0/core-icons.min.js"></script>
