@@ -54,7 +54,7 @@
     <p>
       The <code class="prettyprint lang-css">.nrk-grid</code> is flex based, but with a fallback to inline-block rendering for older browsers.
       Used alone, the grid only places it's direct child elements next to each other, aligns height to match tallest sibling and wraps rows when needed.
-      The grid can therefore be used just to align items, or to build more complex layouts by combining with <a href="#sizes">size classes</a>:
+      The grid can therefore be used just to align items, or to build more complex layouts when combined with <a href="#sizes">size classes</a>:
     </p>
     <pre class="prettyprint">&lt;!-- Horizontal menu --&gt;
 &lt;ul class="nrk-grid"&gt;
@@ -73,7 +73,7 @@
       The size classes consists of a fluid 12 unit system that can be used inside and outside of the <code class="prettyprint lang-css">.nrk-grid</code>.
       Size classes are prefixed <code class="prettyprint lang-css">.nrk-xs-</code>, <code class="prettyprint lang-css">.nrk-sm-</code>,
       <code class="prettyprint lang-css">.nrk-md-</code> <code class="prettyprint lang-css">.nrk-lg-</code>, and apply to the corresponding screen widths, overriding classes targeted at smaller devices.
-      Therefore, e.g. applying any <code class="prettyprint lang-css">.nrk-md-*</code> class to an element will affect its styling on medium devices
+      Therefore, applying any <code class="prettyprint lang-css">.nrk-md-*</code> class to an element will affect its styling on medium devices
       and up - also on large devices if a <code class="prettyprint lang-css">.nrk-lg-*</code> class is not present.
     </p>
     <h3>Breaking out</h3>
@@ -84,7 +84,7 @@
       a bug where OS X renders excess horizontal scrollbars.
     </p>
     <h3>Example grid</h3>
-<pre class="prettyprint">&lt;!-- Full width mobile, third on tablet, half on desktop --&gt;
+<pre class="prettyprint">&lt;!-- Full width mobile, half on tablet, third on desktop --&gt;
 &lt;div class="nrk-grid"&gt;
   &lt;div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12"&gt;Content&lt;/div&gt;
   &lt;div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12"&gt;Content&lt;/div&gt;
