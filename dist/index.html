@@ -8,193 +8,201 @@
   <link rel="stylesheet" href="https://static.nrk.no/core-fonts/1.0.0/core-fonts.min.css">
   <link rel="stylesheet" href="core-css.css">
   <style>
-    html { font-family: 'LFT Etica', 'Helvetica Neue', Helvetica, Arial, sans-serif }
-    body { transition: background-color .5s }
-
-    /* Docs-specific CSS (extends @nrk/core-css) */
-    .docs-container { margin: auto; padding: 1rem; max-width: 1080px }
-    .docs-content { padding-bottom: 15%; outline: 0 } /* Focusable without outline */
-    .docs-content > hr { margin: 3rem 0 2rem 0; padding: 0; border: 0; border-top: 1px solid; opacity: .1 }
-    .docs-grid > * { box-sizing: border-box; padding: 3px 9px; box-shadow: inset 0 0 0 1px #eee }
-    .docs-color { padding: 1em; font:.8em/1 monospace; box-shadow: 0 2px 3px rgba(0,0,0,.3) }
-    .docs-icons input { position: absolute; pointer-events: none; opacity: 0; width: 1px; height: 1px }
-    .docs-icons svg { display: block; pointer-events: none; margin: auto; height: 30px; width: 50% }
-    .docs-icons a { position: relative; padding: 15px; white-space: nowrap; transition: .2s }
-    .docs-icons a:active { z-index: 2; transform: scale(.9) }
-
-    .nrk-color-super { background: #009fbb; color: #fff }  /* For demo only */
-    .nrk-color-invert pre, .nrk-color-invert :not(pre) > code { -webkit-filter: invert(100%); filter: invert(100%) }
-    .nrk-color-invert .docs-grid > * { box-shadow: inset 0 0 0 1px #333 }
+    html { font: 110%/1.5 'LFT Etica',sans-serif; background: #fcfcfc; color: #26292a }
+    .prettyprint.prettyprint { overflow: auto; border: 0; padding: 4px 6px; font-size: 14px; background: #f6f6f6 }
+    .docs-menu { list-style: none; margin: 0; padding: 20px; font-size: 14px; line-height: 2 }
+    .docs-menu a { display: block; text-decoration: none; opacity: .7; transition: .2s }
+    .docs-menu a:hover, .docs-menu a:focus, .docs-menu a.is-active { font-weight: 700; opacity: 1 }
+    .docs-page h2:not(:first-child) { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid #ddd }
+    .docs-page h3 { font-size: 12px; letter-spacing: .05em; text-transform: uppercase; margin: 2em 0 -1em }
+    .docs-page p { max-width: 700px; -webkit-font-smoothing: antialiased }.docs-page { padding: 4% }
 
     @media(min-width:720px){
-      .docs-menu { position: fixed }
-      .docs-icons a::after { content: 'Click to copy'; pointer-events: none; position: absolute; z-index: 2; padding: 0 5px; border-radius: 3px; font-size: 13px; background:#141517; color: #fff; opacity: 0; transition: .2s }
-      .docs-icons a:active::after { content: 'Copied!' }
-      .docs-icons a:hover::after { opacity: 1 }
+      .docs-menu { position: fixed; width: 160px; height: 100vh; padding-top: 90px }
+      .docs-menu ~ iframe { position: fixed; width: calc(100% - 200px); height: 100% }
+      .docs-menu ~ * { margin-left: 200px }
     }
   </style>
 </head>
-<body class="nrk-color-base">
-  <a class="nrk-sr-focus" href="#content">Hopp til innhold</a>
-  <header class="nrk-color-invert">
-    <h1 class="docs-container" style="font-size:1em">@nrk/core-css</h1>
-  </header>
-  <div class="nrk-grid docs-container">
-    <aside class="nrk-xs-12of12 nrk-sm-3of12">
-      <nav class="docs-menu">
-        <ul>
-          <li><a href="#philosophy">Philosophy</a></li>
-          <li><a href="#grid">Grid and sizing</a></li>
-          <li><a href="#button">Button</a></li>
-          <li><a href="#pagination">Pagination</a></li>
-          <li><a href="#colors">Colors</a></li>
-          <li><a href="#utilities">Utilities</a></li>
-        </ul>
-        <label><input type="radio" name="color" value="nrk-color-base" checked /> Normal</label>
-        <br /><label><input type="radio" name="color" value="nrk-color-invert" /> Invert</label>
-        <br /><label><input type="radio" name="color" value="nrk-color-super" /> Super</label>
-        <p>
-          <a class="nrk-button" href="https://github.com/nrkno/core-css">View on Github</a><br>
-          <a class="nrk-button" href="https://github.com/nrkno/core-css/archive/master.zip">Download ZIP</a>
-        </p>
-      </nav>
-    </aside>
-    <div class="docs-content nrk-xs-12of12 nrk-sm-9of12" id="content" tabindex="-1">
-      <h1>@nrk/core-css</h1>
+<body>
+  <ul class="docs-menu nrk-color-shade-1">
+    <li><a href="#">Getting started</a></li>
+    <li><a href="#grid">Grid</a></li>
+    <li><a href="#sizes">Sizing</a></li>
+    <li><a href="#button">Button</a></li>
+    <li><a href="#pagination">Pagination</a></li>
+    <li><a href="#colors">Colors</a></li>
+    <li><a href="#accessibility">Accessibility</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><label><input type="checkbox" onchange="document.body.classList.toggle('nrk-color-invert')"> Invert</label></li>
+  </ul>
+  <article class="docs-page">
+    <h2>@nrk/core-css</h2>
+    <h3>Getting started</h3>
+    <p>
+      This css-foundation exposes a set of class names to ease creating backwards compatible layouts and standard NRK styling.
+      Everything is namespaced <code class="prettyprint">nrk-</code> to play nice with existing code.
+      Insert the code below into the <code class="prettyprint">&lt;head&gt;</code> of your page to get started:
+    </p>
+    <pre class="prettyprint">&lt;link rel="stylesheet" src="https://static.nrk.no/core-css/latest/core-css.min.css"&gt;</pre>
+    <h3>Shortcuts</h3>
+    <p>
+      <a class="nrk-button" target="_top" href="https://github.com/nrkno/core-css/archive/master.zip"><svg width="15" height="15"><use xlink:href="#nrk-download" /></svg> Download CSS</a>
+      <a class="nrk-button" target="_top" href="https://github.com/nrkno/core-css">View on Github</a>
+    </p>
+    <h2 id="grid">Grid</h2>
+    <p>
+      The <code class="prettyprint lang-css">.nrk-grid</code> is flex based, but with a fallback to inline-block rendering for older browsers.
+      Used alone, the grid only places it's direct child elements next to each other, aligns height to match tallest sibling and wraps rows when needed.
+      The grid can therefore be used just to align items, or to build more complex layouts by combining with <a href="#sizes">size classes</a>:
+    </p>
+    <pre class="prettyprint">&lt;!-- Horizontal menu --&gt;
+&lt;ul class="nrk-grid"&gt;
+  &lt;li&gt;Menu item 1&lt;/li&gt;
+  &lt;li&gt;Menu item 3&lt;/li&gt;
+  &lt;li&gt;Menu item 3&lt;/li&gt;
+&lt;/ul&gt;
 
-      <h2 id="philosophy">Philosophy</h2>
-      <p>
-        <a href="https://github.com/nrkno/core-css">@nrk/core-css</a> is the core CSS layer for NRK. It is not a framework that provides solutions for all use cases, but instead exposes a thin foundation for styling screens and view components.
-        @nrk/core-css uses namespacing, which makes it safe to include in your existing code base.
-      </p>
-      <hr />
+&lt;!-- Grid with size classes --&gt;
+&lt;div class="nrk-grid"&gt;
+  &lt;div class="nrk-xs-6of12"&gt;I'm a half&lt;/div&gt;
+  &lt;div class="nrk-xs-6of12"&gt;And I'm a half too&lt;/div&gt;
+&lt;/div&gt;</pre>
+    <h2 id="sizes">Sizing</h2>
+    <p>
+      The size classes consists of a fluid 12 unit system that can be used inside and outside of the <code class="prettyprint lang-css">.nrk-grid</code>.
+      Size classes are prefixed <code class="prettyprint lang-css">.nrk-xs-</code>, <code class="prettyprint lang-css">.nrk-sm-</code>,
+      <code class="prettyprint lang-css">.nrk-md-</code> <code class="prettyprint lang-css">.nrk-lg-</code>, and apply to the corresponding screen widths, overriding classes targeted at smaller devices.
+      Therefore, e.g. applying any <code class="prettyprint lang-css">.nrk-md-*</code> class to an element will affect its styling on medium devices
+      and up - also on large devices if a <code class="prettyprint lang-css">.nrk-lg-*</code> class is not present.
+    </p>
+    <h3>Breaking out</h3>
+    <p>
+      To break out of a centered conatiner and fill the entire screen width, use
+      <code class="prettyprint lang-css">.nrk-xs-100</code>. Make sure to wrap the entire page
+      in a <code class="prettyprint">&lt;div style="overflow:hidden"&gt;Your page here&lt;div&gt;</code> to prevent
+      a bug where OS X renders excess horizontal scrollbars.
+    </p>
+    <h3>Example grid</h3>
+<pre class="prettyprint">&lt;!-- Full width mobile, third on tablet, half on desktop --&gt;
+&lt;div class="nrk-grid"&gt;
+  &lt;div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12"&gt;Content&lt;/div&gt;
+  &lt;div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12"&gt;Content&lt;/div&gt;
+&lt;/div&gt;
 
+&lt;!-- Full width all devices --&gt;
+&lt;div class="nrk-grid"&gt;
+  &lt;div class="nrk-xs-12of12"&gt;Content&lt;/div&gt;
+  &lt;div class="nrk-xs-12of12"&gt;Content&lt;/div&gt;
+&lt;/div&gt;</pre>
+    <h3>Breakpoints</h3>
+    <pre class="prettyprint lang-css">.nrk-xs-                               /* All devices */
+@media (min-width: 640px) { .nrk-sm- } /* Small devices and up */
+@media (min-width: 720px) { .nrk-md- } /* Medium devices and up */
+@media (min-width: 990px) { .nrk-lg- } /* Large devices and up */</pre>
 
-
-      <h2 id="grid">Grid and sizing</h2>
-      <p>
-        @nrk/core-css consist of three major components: <code class="language-css">.nrk-grid</code>
-        (flexbox based with inline-block fallback),
-        <code class="language-css">.nrk-container</code> for standardized page-width, and 12 fluid
-        size units. Units are prefixed with <code class="language-css">.nrk-xs-, .nrk-sm-, .nrk-md-, .nrk-lg-</code>
-        based on minimum widths, meaning they also apply to all sizes above unless other is specified
-        (e.g., .nrk-xs-4 applies to extra small, small, medium and large devices). Rows wrap automatically.
-      </p>
-      <pre><code class="language-css">/* no media query */              /* Extra small devices */
-@media (min-width: 640px) { ... } /* Small devices */
-@media (min-width: 720px) { ... } /* Medium devices */
-@media (min-width: 990px) { ... } /* Large devices */</code></pre>
-      <div class="docs-grid nrk-grid">
-        <div class="nrk-xs-1of12">1</div><div class="nrk-xs-11of12">11</div>
-        <div class="nrk-xs-2of12">2</div><div class="nrk-xs-10of12">10</div>
-        <div class="nrk-xs-3of12">3</div><div class="nrk-xs-9of12">9</div>
-        <div class="nrk-xs-4of12">4</div><div class="nrk-xs-8of12">8</div>
-        <div class="nrk-xs-5of12">5</div><div class="nrk-xs-7of12">7</div>
-        <div class="nrk-xs-6of12">6</div><div class="nrk-xs-6of12">6</div>
-        <div class="nrk-xs-12of12">12</div>
-      </div>
-      <pre><code data-markup=".docs-grid" class="language-markup"></code></pre>
-      <p>
-        <strong>Tip:</strong> If you need to break out of a <code class="language-css">.nrk-container</code>
-        and fill the entire screen width (even when inside <code class="language-css">.nrk-grid</code>),
-        you can use the <code class="language-css">.nrk-xs-100</code> class. NB: Make sure there is
-        a wrapper element in body with <code class="language-css">overflow:hidden</code> to prevent
-        <code class="language-css">.nrk-xs-100</code> from causing horizontal scrollbars.
-      </p>
-      <hr />
-
-
-
-      <h2 id="button">Button</h2>
-      <div class="docs-button">
-        <a class="nrk-button" href="#">Link (default)</a>
-        <button class="nrk-button">Button (default)</button>
-        <button class="nrk-button" disabled>Button disabled</button>
-        <a class="nrk-button is-disabled" href="#">Link (disabled)</a>
-        <button class="nrk-button is-busy" disabled>Button busy</button>
-        <a class="nrk-button nrk-color-invert" href="#">Link invert</a>
-        <button class="nrk-button nrk-color-invert">Button invert</button>
-        <button class="nrk-button nrk-color-invert" disabled>Button invert disabled</button>
-        <button class="nrk-button nrk-button--o"><svg><use xlink:href="#nrk-close" /></svg></button>
-      </div>
-      <pre><code data-markup=".docs-button" class="language-markup"></code></pre>
-      <hr />
-
-
-
-      <h2 id="pagination">Pagination</h2>
-      <div class="docs-pagination">
-        <div class="nrk-pagination">
-          <button class="nrk-button">1</button>
-          <button class="nrk-button">2</button>
-          <span class="nrk-button is-disabled">&hellip;</span>
-          <button class="nrk-button">8</button>
-          <button class="nrk-button">9</button>
-        </div>
-        <div class="nrk-pagination">
-          <button class="nrk-button">Single button</button>
-        </div>
-        <div class="nrk-pagination">
-          <button class="nrk-button nrk-color-invert">Single invert button</button>
-        </div>
-      </div>
-      <pre><code data-markup=".docs-pagination" class="language-markup"></code></pre>
-      <hr />
+    <h2 id="button">Button</h2>
+    <a class="nrk-button" href="#">Link</a>
+    <button class="nrk-button">Button</button>
+    <button class="nrk-button" disabled>Button disabled</button>
+    <a class="nrk-button is-disabled" href="#">Link disabled</a>
+    <button class="nrk-button is-busy" disabled>Busy</button>
+    <button class="nrk-button nrk-color-invert">Inverted</button>
+    <button class="nrk-button nrk-button--o"><svg><use xlink:href="#nrk-close" /></svg></button>
+    <button class="nrk-button">Text and icon <svg class="nrk-fade" width="30" height="30" aria-hidden="true"><use xlink:href="#nrk-arrow-right-long" /></svg></button>
+    <pre class="prettyprint">&lt;a class="nrk-button" href="#"&gt;Link&lt;/a&gt;
+&lt;button class="nrk-button"&gt;Button&lt;/button&gt;
+&lt;button class="nrk-button" disabled&gt;Button disabled&lt;/button&gt;
+&lt;a class="nrk-button is-disabled" href="#"&gt;Link disabled&lt;/a&gt;
+&lt;button class="nrk-button is-busy" disabled&gt;Busy&lt;/button&gt;
+&lt;button class="nrk-button nrk-color-invert"&gt;Inverted&lt;/button&gt;
+&lt;button class="nrk-button nrk-button--o"&gt;&lt;svg&gt;&lt;use xlink:href="#nrk-close" /&gt;&lt;/svg&gt;&lt;/button&gt;
+&lt;button class="nrk-button"&gt;Text and icon &lt;svg class="nrk-fade" width="30" height="30" aria-hidden="true"&gt;&lt;use xlink:href="#nrk-arrow-right-long" /&gt;&lt;/svg&gt;&lt;/button&gt;</pre>
 
 
-
-      <h2 id="colors">Colors</h2>
-      <p class="docs-color nrk-color-base">.nrk-color-base { color: #26292a; background-color: #fff }</p>
-      <p class="docs-color nrk-color-spot">.nrk-color-spot { color: #26292a; background-color: #00b9f2 }</p>
-      <p class="docs-color nrk-color-invert">.nrk-color-invert { color: #fff; background-color: #141517 }</p>
-      <p class="docs-color nrk-color-shade-1">.nrk-color-shade-1 { color: #26292a; background-color: #f6f6f6 }</p>
-      <p class="docs-color nrk-color-shade-2">.nrk-color-shade-2 { color: #26292a; background-color: #e9e9e9 }</p>
-      <p class="docs-color nrk-color-shade-3">.nrk-color-shade-3 { color: #26292a; background-color: #e0e0e0 }</p>
-      <p class="docs-color nrk-color-shade-4">.nrk-color-shade-4 { color: #26292a; background-color: #c8c8c8 }</p>
-      <hr />
-
-
-
-      <h2 id="utilities">Utilities</h2>
-      <p>
-        Accessibility considerations is a part of @nrk/core-css styling.
-        Hide an element to all devices except screen readers with
-        <code class="language-css">.nrk-sr</code>, or make it show on focus
-        by using <code class="language-css">.nrk-sr-focus</code>.
-        In general, semantic html-markup like <code class="language-css">&lt;nav&gt;</code>
-        does not require attributes for usability. Be aware though that providing
-        aria- attributes can be useful when developing interactive widgets.
-        Use <code class="language-css">.nrk-fade</code> to achieve
-        a more sublte look of elements (for instance meta data or icons in buttons).
-      </p>
+    <h2 id="pagination">Pagination</h2>
+    <div class="nrk-pagination">
+      <a href="#1" class="nrk-button">1</a>
+      <a href="#2" class="nrk-button">2</a>
+      <a href="#" class="nrk-button is-disabled">&hellip;</a>
+      <a href="#8" class="nrk-button">8</a>
+      <a href="#9" class="nrk-button">9</a>
     </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
-  <script src="https://static.nrk.no/core-icons/1.0.0/core-icons.min.js"></script>
-  <script>
-    // Import html-markup
-    [].forEach.call(document.querySelectorAll('[data-markup]'), function(el){
-      el.textContent = document.querySelector(el.getAttribute('data-markup')).outerHTML.split('\n').reduce(function(r, v, k){
-        return r.concat(k? v.replace(el.strip = el.strip || new RegExp('^[\\s|\\t]{' + Math.max(0, String(v.match(/^[\s\t]+/) || '').length-1) + '}'), '') : v);
-      },[]).join('\n').replace(/docs-\w+\s*/g,'').replace(' class=""','').trim(); //Hide docs-classes
-    });
+    <div class="nrk-pagination"><button class="nrk-button">Single button</button></div>
+    <div class="nrk-pagination"><button class="nrk-button nrk-color-invert">Single invert button</button></div>
+    <pre class="prettyprint">&lt;div class="nrk-pagination"&gt;
+  &lt;a href="#1" class="nrk-button"&gt;1&lt;/a&gt;
+  &lt;a href="#2" class="nrk-button"&gt;2&lt;/a&gt;
+  &lt;a href="#" class="nrk-button is-disabled"&gt;&amp;hellip;&lt;/a&gt;
+  &lt;a href="#8" class="nrk-button"&gt;8&lt;/a&gt;
+  &lt;a href="#9" class="nrk-button"&gt;9&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="nrk-pagination"&gt;
+  &lt;button class="nrk-button"&gt;Single button&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="nrk-pagination"&gt;
+  &lt;button class="nrk-button nrk-color-invert"&gt;Single invert button&lt;/button&gt;
+&lt;/div&gt;</pre>
 
-    // Activate dev-tool switches
-    document.addEventListener('change', function(e){
-      if(e.target.name === 'color'){
-        document.body.className = document.body.className.replace(/nrk-color-[^-]+/,'') + ' ' + e.target.value;
-      }
-    });
 
-    // Livereload CSS
-    if(window.EventSource)(function(){
-      var source = new EventSource('http://localhost:35729');
-      source.onerror = function(){source.close()} //Close if livereload not running
-      source.onmessage = function(event){
-        var link = document.querySelector('link[href*="' + event.data + '"]');
-        if(link)link.href = link.href.split('?')[0] + '?' + Date.now();
-      };
-    })();
-  </script>
+    <h2 id="colors">Colors</h2>
+    <p>
+      The colors provided in core-css is a subset of NRK's global brand colors, and is not owned by any spesific product.
+      To ease themability buttons, pagainations and icons are set to inherit text color.
+      Instead of mixing in hardcoded color values, use <code class="prettyprint lang-css">.nrk-fade</code> to achieve a more sublte look.
+    </p>
+    <h3>Accessbility</h3>
+    <p>
+      Please note that using color to convey meaning is unfortunate for accessbility.
+      Ensure that information denoted by the color is either obvious from the content itself, or is included through alternative means,
+      such as additional text hidden with the <code class="prettyprint">.nrk-sr</code> class.
+    </p>
+    <h3>Palette</h3>
+    <pre style="padding:9px" class="nrk-color-base">.nrk-color-base { color: #26292a; background-color: #fff }</pre>
+    <pre style="padding:9px" class="nrk-color-spot">.nrk-color-spot { color: #26292a; background-color: #00b9f2 }</pre>
+    <pre style="padding:9px" class="nrk-color-invert">.nrk-color-invert { color: #fff; background-color: #141517 }</pre>
+    <pre style="padding:9px" class="nrk-color-shade-1">.nrk-color-shade-1 { color: #26292a; background-color: #f6f6f6 }</pre>
+    <pre style="padding:9px" class="nrk-color-shade-2">.nrk-color-shade-2 { color: #26292a; background-color: #e9e9e9 }</pre>
+    <pre style="padding:9px" class="nrk-color-shade-3">.nrk-color-shade-3 { color: #26292a; background-color: #e0e0e0 }</pre>
+    <pre style="padding:9px" class="nrk-color-shade-4">.nrk-color-shade-4 { color: #26292a; background-color: #c8c8c8 }</pre>
+
+
+    <h2 id="accessibility">Accessibility</h2>
+    <p>
+      In general, semantic html-markup like <code class="prettyprint lang-css">&lt;nav&gt;</code> does not require attributes for usability.
+      There will be cases in which you will need to selectively "show" and "hide" content by either removing it from the visual flow or preventing screen readers from reading it.
+      We have settled on the following conventions for each use case:
+    </p>
+    <div class="nrk-grid">
+      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide from everyone</h3><p><small>Add the boolean <code class="prettyprint">hidden</code> attribute attribute to dynamically hide content from all users. Remove the attribute to show it again.</small></p></div>
+      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide from screen readers only</h3><p><small>Use the <code class="prettyprint">aria-hidden="true"</code> attribute to hide content from screen readers while keeping it visually perceivable.</small></p></div>
+      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide from screen browsers only</h3><p><small>Use the <code class="prettyprint lang-css">.nrk-sr</code> class to show content to screen readers only. The content is visually hidden but remains visible for screen readers.</small></p></div>
+      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide but show on focus</h3><p><small>Use the <code class="prettyprint lang-css">.nrk-sr-focus</code> class to show content only when in focus. This is practical in keyboard-only interactions such as "skip to content".</small></p></div>
+    </div>
+
+
+    <h2 id="faq">FAQ</h2>
+    <h3>Why isn't core-css modular?</h3>
+    <p>
+      One of the missions of having a shared css-foundation, is to provide a consistent and predictabe coding environment across platforms and products.
+      If core-css is modularised, a team can for instance easily opt out the button, making the css environment less predictable when other teams are to contribute.
+    </p>
+    <h3>Where are all the components?</h3>
+    <p>
+      As core-css is the foundation for many NRK products, a low overhead is important.
+      Components therefore live in their own repositories and can be consumed when needed.
+      Instead, core-css provides the common CSS denominators between all of NRK's sites.
+    </p>
+    <h3>Why doesn't core-css expose CSS variables?</h3>
+    <p>
+
+      While both sizes and NRK brand colors are exposed in core-css, these should not be altered. <code class="prettyprint lang-css">nrk-xs-12of12</code> should always result in 100%, and <code class="prettyprint lang-css">nrk-color-spot</code> should always result in the official spot color of NRK.
+      CSS-variables are cascading, and can break predictabiliy. Instead, each product is free to define their own colors in form of new selectors.
+    </p>
+    <h3>How does core-css handle fonts, icons or facivons?</h3>
+    <p>Assets are not handled by core-css, as these are separate projects. Please see refer to the core-styleguide.</p>
+  </article>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css" defer></script>
+  <script src="https://static.nrk.no/core-icons/latest/core-icons.min.js"></script>
 </body>
 </html>
