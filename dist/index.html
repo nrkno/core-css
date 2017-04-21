@@ -83,6 +83,15 @@
       in a <code class="prettyprint">&lt;div style="overflow:hidden"&gt;Your page here&lt;div&gt;</code> to prevent
       a bug where OS X renders excess horizontal scrollbars.
     </p>
+    <h3>Breakpoints</h3>
+    <p>
+      Breakpoints are <code class="prettyprint">rem</code>-based (root font size) to improve accessibility.
+      Sizes behave accordingly to user preferences for font scaling.
+    </p>
+    <pre class="prettyprint lang-css">.nrk-xs-                               /* All devices */
+@media (min-width: 40rem) { .nrk-sm- } /* 640px when 16px root font size: Small devices and up */
+@media (min-width: 45rem) { .nrk-md- } /* 720px when 16px root font size: Medium devices and up */
+@media (min-width: 62rem) { .nrk-lg- } /* 992px when 16px root font size: Large devices and up */</pre>
     <h3>Example grid</h3>
 <pre class="prettyprint">&lt;!-- Full width mobile, half on tablet, third on desktop --&gt;
 &lt;div class="nrk-grid"&gt;
@@ -95,11 +104,6 @@
   &lt;div class="nrk-xs-12of12"&gt;Content&lt;/div&gt;
   &lt;div class="nrk-xs-12of12"&gt;Content&lt;/div&gt;
 &lt;/div&gt;</pre>
-    <h3>Breakpoints</h3>
-    <pre class="prettyprint lang-css">.nrk-xs-                               /* All devices */
-@media (min-width: 640px) { .nrk-sm- } /* Small devices and up */
-@media (min-width: 720px) { .nrk-md- } /* Medium devices and up */
-@media (min-width: 990px) { .nrk-lg- } /* Large devices and up */</pre>
 
     <h2 id="button">Button</h2>
     <a class="nrk-button" href="#">Link</a>
