@@ -16,12 +16,15 @@ button, select { cursor: pointer }
 /* Grid
 ---------------------------------------------------------------- */
 .nrk-grid.nrk-grid { /* Double selector ensures grid nestability */
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   font-size: 0;
 }
 .nrk-grid > * {
   box-sizing: border-box;
+  -webkit-flex-shrink: 0;
   flex-shrink: 0;
   display: inline-block;
   vertical-align: top;
