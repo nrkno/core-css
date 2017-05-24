@@ -1,4 +1,4 @@
-# @nrk/core-css
+# @nrk/core-css ![Release](https://img.shields.io/github/release/nrkno/core-css.svg)
 Core CSS layer for web services.
 
 ## Installation
