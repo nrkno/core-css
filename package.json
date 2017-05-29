@@ -21,9 +21,6 @@
   "bugs": {
     "url": "https://github.com/nrkno/core-css/issues"
   },
-  "optionalDependencies": {
-    "@nrk/static-publish-cli": "^3.0.2"
-  },
   "devDependencies": {
     "cpx": "^1.5.0",
     "eslint": "^3.18.0",
