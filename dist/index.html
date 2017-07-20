@@ -32,6 +32,7 @@
     <li><a href="#pagination">Pagination</a></li>
     <li><a href="#colors">Colors</a></li>
     <li><a href="#accessibility">Accessibility</a></li>
+    <li><a href="#utilities">Utilities</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><label><input type="checkbox" onchange="document.body.classList.toggle('nrk-color-invert')"> Invert</label></li>
   </ul>
@@ -185,6 +186,15 @@
       <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide but show on focus</h3><p><small>Use the <code class="prettyprint lang-css">.nrk-sr-focus</code> class to show content only when in focus. This is practical in keyboard-only interactions such as "skip to content".</small></p></div>
     </div>
 
+    <h2 id="utilities">Utilities</h2>
+    <h3>Truncate</h3>
+    <p>
+      Use the class <code class="prettyprint">.nrk-truncate</code> if you have an element containing a long text
+      that should be displayed as a single line and you don't want the text to overflow the width of its container.
+      <br><em><strong>Important:</strong> Does not work for elements with <code class="prettyprint">display: inline</code></em>
+    </p>
+    <button class="nrk-button nrk-xs-1of12 nrk-truncate">Some really long button text</button>
+    <pre class="prettyprint">&lt;button class="nrk-button nrk-xs-1of12 nrk-truncate"&gt;Some really long button text&lt;/button&gt;</pre>
 
     <h2 id="faq">FAQ</h2>
     <h3>Why isn't core-css modular?</h3>
