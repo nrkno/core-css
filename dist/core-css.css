@@ -63,6 +63,7 @@ button, select { cursor: pointer }
   position: absolute;
   top: 0;
   right: 0;
+  right: .5px;            /* Avoid half pixel overflow:hidden bug in Chrome */
   bottom: 0;
   left: 0;
   opacity: .4;            /* nrk-color-shade-4 is 78% luminosity, which equals 22% darkness */
@@ -105,7 +106,6 @@ button, select { cursor: pointer }
 }
 .nrk-spin { animation: nrk-spin 1s infinite linear }
 @keyframes nrk-spin { to { transform: rotate(360deg) } }
-
 
 
 /* Pagination
@@ -182,4 +182,13 @@ button, select { cursor: pointer }
   width: 1px;
   height: 1px;
   clip: rect(0, 0, 0, 0);
+}
+
+
+/* Utilities
+---------------------------------------------------------------- */
+.nrk-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
