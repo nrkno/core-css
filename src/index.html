@@ -31,6 +31,7 @@
     <li><a href="#button">Button</a></li>
     <li><a href="#pagination">Pagination</a></li>
     <li><a href="#colors">Colors</a></li>
+    <li><a href="#svg-icons">SVG icon colors</a></li>
     <li><a href="#accessibility">Accessibility</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><label><input type="checkbox" onchange="document.body.classList.toggle('nrk-color-invert')"> Invert</label></li>
@@ -171,6 +172,87 @@
     <pre style="padding:9px" class="nrk-color-shade-3">.nrk-color-shade-3 { color: #26292a; background-color: #e0e0e0 }</pre>
     <pre style="padding:9px" class="nrk-color-shade-4">.nrk-color-shade-4 { color: #26292a; background-color: #c8c8c8 }</pre>
 
+    <h2 id="svg-icons">SVG icon colors</h2>
+
+    <div class="docs-svg">
+      <p>
+        All SVGs are by default filled with the inherited color property.
+      </p>
+      <div class="nrk-grid">
+        <div class="nrk-xs-6of12 ">
+          <div>
+            Settings
+            <button class="nrk-button nrk-button--o">
+              <svg>
+                <use xlink:href="#nrk-settings--active"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <pre class="prettyprint">&lt;div&gt;
+    Settings
+    &lt;button class=&quot;nrk-button nrk-button--o&quot;&gt;
+        &lt;svg&gt;
+            &lt;use xlink:href=&quot;#nrk-settings--active&quot;/&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</pre>
+
+
+      <p>
+        SVGs will inherit the color from the closest parent.
+        By setting the color on the wrapping element, the SVG will inherit that color property.
+      </p>
+      <div class="nrk-grid">
+        <div class="nrk-xs-12of12 pad">
+          <div style="color: tomato">
+            Settings
+            <button class="nrk-button nrk-button--o">
+              <svg>
+                <use xlink:href="#nrk-settings--active"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <pre class="prettyprint">&lt;div style=&quot;color: tomato&quot;&gt;
+    Settings
+    &lt;button class=&quot;nrk-button nrk-button--o&quot;&gt;
+        &lt;svg&gt;
+            &lt;use xlink:href=&quot;#nrk-settings--active&quot;/&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</pre>
+
+
+      <p>
+        By setting the color-property you can choose whatever color you'd like.
+      </p>
+      <div class="nrk-grid">
+        <div class="nrk-xs-12of12 pad">
+          <div style="color: tomato">
+            Settings
+            <button style="color: deeppink" class="nrk-button nrk-button--o">
+              <svg>
+                <use xlink:href="#nrk-settings--active"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <pre class="prettyprint">&lt;div style=&quot;color: tomato&quot;&gt;
+    Settings
+    &lt;button style=&quot;color: deeppink&quot; class=&quot;nrk-button nrk-button--o&quot;&gt;
+        &lt;svg&gt;
+            &lt;use xlink:href=&quot;#nrk-settings--active&quot;/&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</pre>
+    </div>
 
     <h2 id="accessibility">Accessibility</h2>
     <p>
