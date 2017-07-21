@@ -15,6 +15,9 @@
     .docs-page h2:not(:first-child) { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid #ddd }
     .docs-page h3 { font-size: 12px; letter-spacing: .05em; text-transform: uppercase; margin: 2em 0 -1em }
     .docs-page p { max-width: 700px; -webkit-font-smoothing: antialiased }.docs-page { padding: 4% }
+    .padded-row-item { padding-right: 15px;}
+    .padded-row-item:last-of-type { padding-right: 0 }
+    .docs-svg h3 { margin-bottom: 15px; border-bottom: 1px solid lightgray}
 
     @media(min-width:720px){
       .docs-menu { position: fixed; width: 160px; height: 100vh; padding-top: 90px }
@@ -173,13 +176,30 @@
     <pre style="padding:9px" class="nrk-color-shade-4">.nrk-color-shade-4 { color: #26292a; background-color: #c8c8c8 }</pre>
 
     <h2 id="svg-icons">SVG icon colors</h2>
+    <p>TODO: Write something about settings default and why we do it.</p>
 
-    <div class="docs-svg">
-      <p>
-        All SVGs are by default filled with the inherited color property.
-      </p>
-      <div class="nrk-grid">
-        <div class="nrk-xs-6of12 ">
+    <div class="docs-svg nrk-grid">
+      <div class="nrk-grid nrk-xs-12of12">
+        <div class="nrk-md-4of12 padded-row-item">
+          <p>
+            All SVGs are by default filled with the inherited color property.
+          </p>
+        </div>
+        <div class="nrk-md-4of12 padded-row-item">
+          <p>
+            SVGs will inherit the color from the closest parent.
+            By
+            setting the color on the wrapping element, the SVG will inherit that color property.
+          </p></div>
+        <div class="nrk-md-4of12 padded-row-item">
+          <p>
+            By setting the color-property you can choose whatever color you'd like.
+          </p>
+        </div>
+      </div>
+      <div class="nrk-grid nrk-xs-12of12">
+        <div class="nrk-md-4of12 padded-row-item">
+          <h3>Default behaviour</h3>
           <div>
             Settings
             <button class="nrk-button nrk-button--o">
@@ -187,71 +207,62 @@
                 <use xlink:href="#nrk-settings--active"></use>
               </svg>
             </button>
+
           </div>
-        </div>
-      </div>
-
-      <pre class="prettyprint">&lt;div&gt;
-    Settings
-    &lt;button class=&quot;nrk-button nrk-button--o&quot;&gt;
-        &lt;svg&gt;
-            &lt;use xlink:href=&quot;#nrk-settings--active&quot;/&gt;
-        &lt;/svg&gt;
-    &lt;/button&gt;
+          <pre class="prettyprint">&lt;div&gt;
+  Settings
+  &lt;button class=&quot;nrk-button nrk-button--o&quot;&gt;
+    &lt;svg&gt;
+      &lt;use xlink:href=&quot;#nrk-settings--active&quot;/&gt;
+    &lt;/svg&gt;
+  &lt;/button&gt;
 &lt;/div&gt;</pre>
+        </div>
+        <div class="nrk-md-4of12 padded-row-item">
 
 
-      <p>
-        SVGs will inherit the color from the closest parent.
-        By setting the color on the wrapping element, the SVG will inherit that color property.
-      </p>
-      <div class="nrk-grid">
-        <div class="nrk-xs-12of12 pad">
-          <div style="color: tomato">
+          <h3>Matching font and icon color</h3>
+          <div style="color: mediumaquamarine">
             Settings
             <button class="nrk-button nrk-button--o">
               <svg>
                 <use xlink:href="#nrk-settings--active"></use>
               </svg>
             </button>
+
           </div>
-        </div>
-      </div>
-
-      <pre class="prettyprint">&lt;div style=&quot;color: tomato&quot;&gt;
-    Settings
-    &lt;button class=&quot;nrk-button nrk-button--o&quot;&gt;
-        &lt;svg&gt;
-            &lt;use xlink:href=&quot;#nrk-settings--active&quot;/&gt;
-        &lt;/svg&gt;
-    &lt;/button&gt;
+          <pre class="prettyprint">&lt;div style=&quot;color: mediumaquamarine&quot;&gt;
+  Settings
+  &lt;button&gt;
+    &lt;svg&gt;
+      &lt;use xlink:href=&quot;#nrk-settings--active&quot;/&gt;
+    &lt;/svg&gt;
+  &lt;/button&gt;
 &lt;/div&gt;</pre>
+        </div>
+        <div class="nrk-md-4of12 padded-row-item">
 
 
-      <p>
-        By setting the color-property you can choose whatever color you'd like.
-      </p>
-      <div class="nrk-grid">
-        <div class="nrk-xs-12of12 pad">
+          <h3>Different font and icon color</h3>
           <div style="color: tomato">
             Settings
-            <button style="color: deeppink" class="nrk-button nrk-button--o">
+            <button style="color: blueviolet" class="nrk-button nrk-button--o">
               <svg>
                 <use xlink:href="#nrk-settings--active"></use>
               </svg>
             </button>
+
           </div>
+          <pre class="prettyprint">&lt;div style=&quot;color: tomato&quot;&gt;
+  Settings
+  &lt;button style=&quot;color: blueviolet&quot;&gt;
+    &lt;svg&gt;
+      &lt;use xlink:href=&quot;#nrk-settings--active&quot;/&gt;
+    &lt;/svg&gt;
+  &lt;/button&gt;
+&lt;/div&gt;</pre>
         </div>
       </div>
-
-      <pre class="prettyprint">&lt;div style=&quot;color: tomato&quot;&gt;
-    Settings
-    &lt;button style=&quot;color: deeppink&quot; class=&quot;nrk-button nrk-button--o&quot;&gt;
-        &lt;svg&gt;
-            &lt;use xlink:href=&quot;#nrk-settings--active&quot;/&gt;
-        &lt;/svg&gt;
-    &lt;/button&gt;
-&lt;/div&gt;</pre>
     </div>
 
     <h2 id="accessibility">Accessibility</h2>
@@ -261,10 +272,10 @@
       We have settled on the following conventions for each use case:
     </p>
     <div class="nrk-grid">
-      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide from everyone</h3><p><small>Add the boolean <code class="prettyprint">hidden</code> attribute attribute to dynamically hide content from all users. Remove the attribute to show it again.</small></p></div>
-      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide from screen readers only</h3><p><small>Use the <code class="prettyprint">aria-hidden="true"</code> attribute to hide content from screen readers while keeping it visually perceivable.</small></p></div>
-      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide from screen browsers only</h3><p><small>Use the <code class="prettyprint lang-css">.nrk-sr</code> class to show content to screen readers only. The content is visually hidden but remains visible for screen readers.</small></p></div>
-      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide but show on focus</h3><p><small>Use the <code class="prettyprint lang-css">.nrk-sr-focus</code> class to show content only when in focus. This is practical in keyboard-only interactions such as "skip to content".</small></p></div>
+      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12 padded-row-item"><h3>Hide from everyone</h3><p><small>Add the boolean <code class="prettyprint">hidden</code> attribute attribute to dynamically hide content from all users. Remove the attribute to show it again.</small></p></div>
+      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12 padded-row-item"><h3>Hide from screen readers only</h3><p><small>Use the <code class="prettyprint">aria-hidden="true"</code> attribute to hide content from screen readers while keeping it visually perceivable.</small></p></div>
+      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12 padded-row-item"><h3>Hide from screen browsers only</h3><p><small>Use the <code class="prettyprint lang-css">.nrk-sr</code> class to show content to screen readers only. The content is visually hidden but remains visible for screen readers.</small></p></div>
+      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12 padded-row-item"><h3>Hide but show on focus</h3><p><small>Use the <code class="prettyprint lang-css">.nrk-sr-focus</code> class to show content only when in focus. This is practical in keyboard-only interactions such as "skip to content".</small></p></div>
     </div>
 
 
