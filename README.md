@@ -48,13 +48,7 @@ cd core-css
 npm install --no-optional
 ```
 
-In order to preview the documentation and watch code changes, start the development server:
-
-```bash
-npm run watch
-```
-
-Open `index.html` in the browser. When the CSS file is edited, it will be injected automatically without refreshing.
+Open `src/index.html` in the browser and refresh to see changes.
 
 ### Building and committing
 After having applied changes, remember to build the CSS, SVG and fonts before pushing the changes upstream.
