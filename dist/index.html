@@ -16,6 +16,8 @@
     .docs-page h3 { font-size: 12px; letter-spacing: .05em; text-transform: uppercase; margin: 2em 0 -1em }
     .docs-page p { max-width: 700px; -webkit-font-smoothing: antialiased }.docs-page { padding: 4% }
 
+    .prettyprint label span { color: inherit }
+    .prettyprint label { cursor: pointer; font-weight: 500; text-decoration: underline }
     @media(min-width:720px){
       .docs-menu { position: fixed; width: 160px; height: 100vh; padding-top: 90px }
       .docs-menu ~ iframe { position: fixed; width: calc(100% - 200px); height: 100% }
@@ -31,6 +33,7 @@
     <li><a href="#button">Button</a></li>
     <li><a href="#pagination">Pagination</a></li>
     <li><a href="#colors">Colors</a></li>
+    <li><a href="#icon-colors">Icon colors</a></li>
     <li><a href="#accessibility">Accessibility</a></li>
     <li><a href="#utilities">Utilities</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -41,7 +44,7 @@
     <h3>Getting started</h3>
     <p>
       This css-foundation exposes a set of class names to ease creating backwards compatible layouts and standard NRK styling.
-      Everything is namespaced <code class="prettyprint">nrk-</code> to play nice with existing code.
+      The code is built on <a href="https://seesparkbox.com/foundry/bem_by_example">BEM-conventions</a> and is namespaced <code class="prettyprint">nrk-</code> to play nice with existing projects.
       Insert the code below into the <code class="prettyprint">&lt;head&gt;</code> of your page to get started:
     </p>
     <pre class="prettyprint">&lt;link rel="stylesheet" href="https://static.nrk.no/core-css/latest/core-css.min.css"&gt;</pre>
@@ -172,6 +175,69 @@
     <pre style="padding:9px" class="nrk-color-shade-3">.nrk-color-shade-3 { color: #26292a; background-color: #e0e0e0 }</pre>
     <pre style="padding:9px" class="nrk-color-shade-4">.nrk-color-shade-4 { color: #26292a; background-color: #c8c8c8 }</pre>
 
+    <h2 id="icon-colors">Icon colors</h2>
+    <div class="nrk-grid">
+      <div class="nrk-grid nrk-xs-12of12">
+        <div class="nrk-xs-12of12 nrk-md-4of12" style="padding-right:15px">
+          <div class="nrk-color-shade-1" style="padding:1em;text-align:center">
+            <button class="nrk-button">
+              Settings
+              <svg width="30" height="15">
+                <use xlink:href="#nrk-arrow-right-long"></use>
+              </svg>
+            </button>
+          </div>
+          <pre class="prettyprint">&lt;button class=&quot;nrk-button&quot;&gt;
+  Settings
+  &lt;svg width=&quot;30&quot; height=&quot;15&quot;&gt;&hellip;&lt;/svg&gt;
+&lt;/button&gt;</pre>
+          <h3>Icon color uses current text color</h3>
+          <p>
+            To ease accessible contrast on icons, core-css sets SVG
+            <code class="prettyprint">fill</code> color to inherits text <code class="prettyprint">color</code>.
+          </p>
+        </div>
+        <div class="nrk-xs-12of12 nrk-md-4of12" style="padding-right:15px">
+          <div class="nrk-color-shade-1" style="padding:1em;text-align:center">
+            <button class="nrk-button" style="color:#00b9f2">
+              <input type="color" id="docs-icon-1" class="nrk-sr" value="#00b9f2" onchange="this.parentNode.style.color = document.querySelector('label[for=' + this.id + ']').style.color = document.querySelector('label[for=' + this.id + ']').textContent = this.value">
+              Settings
+              <svg width="30" height="15">
+                <use xlink:href="#nrk-arrow-right-long"></use>
+              </svg>
+            </button>
+          </div>
+          <pre class="prettyprint">&lt;button style=&quot;color:<label for="docs-icon-1" style="color:#00b9f2">#00b9f2</label>&quot; class=&quot;nrk-button&quot;&gt;&gt;
+  Settings
+  &lt;svg width=&quot;30&quot; height=&quot;15&quot;&gt;&hellip;&lt;/svg&gt;
+&lt;/button&gt;</pre>
+        <h3>Color is inherited</h3>
+        <p>
+          Setting <code class="prettyprint">color</code> on any parent element affects color of icons within.
+        </p>
+        </div>
+        <div class="nrk-xs-12of12 nrk-md-4of12">
+          <div class="nrk-color-shade-1" style="padding:1em;text-align:center">
+            <button class="nrk-button">
+              <input type="color" id="docs-icon-3" class="nrk-sr" value="#00b9f2" onchange="this.nextElementSibling.style.color = document.querySelector('label[for=' + this.id + ']').style.color = document.querySelector('label[for=' + this.id + ']').textContent = this.value">
+              Settings
+              <svg width="30" height="15" style="color:#00b9f2">
+                <use xlink:href="#nrk-arrow-right-long"></use>
+              </svg>
+            </button>
+          </div>
+          <pre class="prettyprint">&lt;button class=&quot;nrk-button&quot;&gt;
+  Settings
+  &lt;svg style=&quot;color:<label for="docs-icon-3" style="color:#00b9f2">#00b9f2</label>&quot; width=&quot;30&quot; height=&quot;15&quot;&gt;&hellip;&lt;/svg&gt;
+&lt;/button&gt;</pre>
+          <h3>Prefer color over fill</h3>
+          <p>
+            To ensure consistency, prefer using the <code class="prettyprint">color</code>
+            property when styling specific icons.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <h2 id="accessibility">Accessibility</h2>
     <p>
@@ -183,7 +249,7 @@
       <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide from everyone</h3><p><small>Add the boolean <code class="prettyprint">hidden</code> attribute attribute to dynamically hide content from all users. Remove the attribute to show it again.</small></p></div>
       <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide from screen readers only</h3><p><small>Use the <code class="prettyprint">aria-hidden="true"</code> attribute to hide content from screen readers while keeping it visually perceivable.</small></p></div>
       <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide from screen browsers only</h3><p><small>Use the <code class="prettyprint lang-css">.nrk-sr</code> class to show content to screen readers only. The content is visually hidden but remains visible for screen readers.</small></p></div>
-      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12" style="padding-right:15px"><h3>Hide but show on focus</h3><p><small>Use the <code class="prettyprint lang-css">.nrk-sr-focus</code> class to show content only when in focus. This is practical in keyboard-only interactions such as "skip to content".</small></p></div>
+      <div class="nrk-xs-12of12 nrk-sm-6of12 nrk-lg-3of12"><h3>Hide but show on focus</h3><p><small>Use the <code class="prettyprint lang-css">.nrk-sr-focus</code> class to show content only when in focus. This is practical in keyboard-only interactions such as "skip to content".</small></p></div>
     </div>
 
     <h2 id="utilities">Utilities</h2>
@@ -191,7 +257,7 @@
     <p>
       Use the class <code class="prettyprint">.nrk-truncate</code> if you have an element containing a long text
       that should be displayed as a single line and you don't want the text to overflow the width of its container.
-      <br><em><strong>Important:</strong> Does not work for elements with <code class="prettyprint">display: inline</code></em>
+      <br><em>NB: Does not work for elements with <code class="prettyprint">display: inline</code></em>
     </p>
     <button class="nrk-button nrk-xs-1of12 nrk-truncate">Some really long button text</button>
     <pre class="prettyprint">&lt;button class="nrk-button nrk-xs-1of12 nrk-truncate"&gt;Some really long button text&lt;/button&gt;</pre>
