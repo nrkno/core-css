@@ -120,6 +120,10 @@ button, select { cursor: pointer }
   border-bottom-right-radius: 0;
   margin-right: 0;
 }
+/* Undo half-pixel Chrome-fix */
+.nrk-pagination > .nrk-button:not(:last-child)::after {
+  right: 0;
+}
 .nrk-pagination > .nrk-button + .nrk-button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
