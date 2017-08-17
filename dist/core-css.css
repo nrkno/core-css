@@ -115,7 +115,7 @@ button, select { cursor: pointer }
 .nrk-pagination::after { content: ''; display: inline-block; width: 50%; border-top: 1px solid; opacity: .22 }
 .nrk-pagination::before { margin-left: -50% }
 .nrk-pagination::after { margin-right: -50% }
-.nrk-pagination > .nrk-button:only-child { width: 100%; max-width: 200px }
+.nrk-pagination > .nrk-button:only-child { min-width: 200px }
 .nrk-pagination > .nrk-button:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
