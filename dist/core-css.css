@@ -56,7 +56,7 @@ button, select { cursor: pointer }
   text-decoration: none;
   background: transparent;
   color: inherit;
-  transition: .2s;
+  transition: transform .2s,  box-shadow .2s;
 }
 .nrk-button::after {
   content: '';
@@ -70,6 +70,7 @@ button, select { cursor: pointer }
   border: inherit;        /* Enable changing border without addressing pseudo element */
   border-radius: inherit; /* Enable changing border-radius without addressing pseudo element */
   border-width: 1px;
+  transition: border .2s; /* Transition border on pesudo only prevents flash of unstyled border */
 }
 .nrk-button:active { transform: scale(.95) }
 .nrk-button:hover,
