@@ -166,6 +166,16 @@ button, select { cursor: pointer }
 }
 
 
+/* Aspects
+---------------------------------------------------------------- */
+.nrk-aspect { position: relative }
+.nrk-aspect > * { box-sizing: border-box; position: absolute; margin: 0; width: 100%; height: 100% }
+.nrk-aspect::after { content: ''; display: block; padding-top: 56.25% }
+.nrk-aspect--9x16::after { padding-top: 177.78% }
+.nrk-aspect--4x3::after { padding-top: 75% }
+.nrk-aspect--1x1::after { padding-top: 100% }
+
+
 /* Colors
 ---------------------------------------------------------------- */
 .nrk-color-base { color: #26292a; background-color: #fff }
