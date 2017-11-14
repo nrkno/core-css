@@ -30,6 +30,7 @@
     <li><a href="#">Getting started</a></li>
     <li><a href="#grid">Grid</a></li>
     <li><a href="#sizes">Sizing</a></li>
+    <li><a href="#aspects">Aspects</a></li>
     <li><a href="#button">Button</a></li>
     <li><a href="#pagination">Pagination</a></li>
     <li><a href="#colors">Colors</a></li>
@@ -82,7 +83,7 @@
     </p>
     <h3>Breaking out</h3>
     <p>
-      To break out of a centered conatiner and fill the entire screen width, use
+      To break out of a centered container and fill the entire screen width, use
       <code class="prettyprint lang-css">.nrk-xs-100</code>. Make sure to wrap the entire page
       in a <code class="prettyprint">&lt;div style="overflow:hidden"&gt;Your page here&lt;div&gt;</code> to prevent
       a bug where OS X renders excess horizontal scrollbars.
@@ -110,7 +111,60 @@
   &lt;div class="nrk-xs-12of12"&gt;Content&lt;/div&gt;
 &lt;/div&gt;</pre>
 
+    <h2 id="aspects">Aspects</h2>
+    <p>
+      Use <code class="prettyprint">.nrk-aspect</code> to scale direct child
+      elements of a container along <code class="prettyprint">16:9</code> aspect.
+      Change aspect by adding a modifier class <code class="prettyprint">.nrk-aspect--1x1</code>,
+      <code class="prettyprint">.nrk-aspect--4x3</code>, <code class="prettyprint">.nrk-aspect--9x16</code>,
+      or generate your own
+      <label>
+        <span class="nrk-sr">width</span>
+        <input type="number" name="w" value="10" min="1" oninput="calculateAspect()" style="font:inherit;font-size:13px;width:2em">
+      </label> &times; <label>
+        <span class="nrk-sr">height</span>
+        <input type="number" name="h" value="4" min="1" oninput="calculateAspect()" style="font:inherit;font-size:13px;width:2em">
+      </label>:
+    </p>
+    <input type="text" name="aspect" class="nrk-color-shade-1" style="box-sizing:border-box;border:0;padding:10px;width:100%;font:14px/1 monospace" value=".nrk-aspect--10x4::after { padding-top: 40% }" onfocus="this.select()" spellcheck="false">
+    <script>
+      function calculateAspect(){
+        var w = Number(document.querySelector('[name="w"]').value)
+        var h = Number(document.querySelector('[name="h"]').value)
+        var key = String(w + 'x' + h).replace(/\./, '\.')
+        var pad = Math.round(h/w*100000) / 1000 || 0
+        document.querySelector('[name="aspect"]').value = '.nrk-aspect--'+key+'::after { padding-top: '+pad+'% }'
+      }
+    </script>
+    <h3>Examples</h3>
+    <br>
+    <div class="nrk-grid" style="margin:-5px">
+      <div class="nrk-xs-6of12 nrk-md-4of12" style="padding:5px">
+        <div class="nrk-aspect">
+          <pre class="prettyprint">&lt;div class="nrk-aspect"&gt;
+  &lt;div&gt;
+    &lt;!-- This div has 16:9-aspect --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </div>
+      <div class="nrk-xs-6of12 nrk-md-4of12" style="padding:5px">
+        <div class="nrk-aspect nrk-aspect--4x3">
+          <pre class="prettyprint">&lt;div class="nrk-aspect nrk-aspect--4x3"&gt;
+  &lt;div&gt;
+    &lt;!-- This div has 4:3-aspect --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </div>
+    </div>
+
     <h2 id="button">Button</h2>
+    <p>
+      Buttons automatically adapt to color and background specified on parent or the button element itself.
+      Use <code class="prettyprint">class="nrk-button nrk-button--o"</code> for rounded button
+      with larger icon. <a href="https://static.nrk.no/core-icons/latest/#a11y">See also icon accessibility &rsaquo;</a>
+    </p>
     <a class="nrk-button" href="#">Link</a>
     <button class="nrk-button">Button</button>
     <button class="nrk-button" disabled>Button disabled</button>
@@ -156,13 +210,13 @@
 
     <h2 id="colors">Colors</h2>
     <p>
-      The colors provided in core-css is a subset of NRK's global brand colors, and is not owned by any spesific product.
-      To ease themability buttons, pagainations and icons are set to inherit text color.
-      Instead of mixing in hardcoded color values, use <code class="prettyprint lang-css">.nrk-fade</code> to achieve a more sublte look.
+      The colors provided in core-css is a subset of NRK's global brand colors, and is not owned by any specific product.
+      To ease themability, the buttons, paginations and icons are set to inherit text color.
+      Instead of mixing in hardcoded color values, use <code class="prettyprint lang-css">.nrk-fade</code> to achieve a more subtle look.
     </p>
-    <h3>Accessbility</h3>
+    <h3>Accessibility</h3>
     <p>
-      Please note that using color to convey meaning is unfortunate for accessbility.
+      Please note that using color to convey meaning is unfortunate for accessibility.
       Ensure that information denoted by the color is either obvious from the content itself, or is included through alternative means,
       such as additional text hidden with the <code class="prettyprint">.nrk-sr</code> class.
     </p>
@@ -265,7 +319,7 @@
     <h2 id="faq">FAQ</h2>
     <h3>Why isn't core-css modular?</h3>
     <p>
-      One of the missions of having a shared css-foundation, is to provide a consistent and predictabe coding environment across platforms and products.
+      One of the missions of having a shared css-foundation, is to provide a consistent and predictable coding environment across platforms and products.
       If core-css is modularised, a team can for instance easily opt out the button, making the css environment less predictable when other teams are to contribute.
     </p>
     <h3>Where are all the components?</h3>
@@ -278,9 +332,9 @@
     <p>
 
       While both sizes and NRK brand colors are exposed in core-css, these should not be altered. <code class="prettyprint lang-css">nrk-xs-12of12</code> should always result in 100%, and <code class="prettyprint lang-css">nrk-color-spot</code> should always result in the official spot color of NRK.
-      CSS-variables are cascading, and can break predictabiliy. Instead, each product is free to define their own colors in form of new selectors.
+      CSS-variables are cascading, and can break predictability. Instead, each product is free to define their own colors in form of new selectors.
     </p>
-    <h3>How does core-css handle fonts, icons or facivons?</h3>
+    <h3>How does core-css handle fonts, icons or favicons?</h3>
     <p>Assets are not handled by core-css, as these are separate projects. Please see refer to the core-styleguide.</p>
   </article>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css" defer></script>
