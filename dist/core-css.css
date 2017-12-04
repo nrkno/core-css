@@ -5,9 +5,11 @@ html {
   cursor: default;
   font: 100%/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-size-adjust: 100%;           /* Mobile font size */
+  -webkit-tap-highlight-color: transparent;
+}
+input, textarea, [contenteditable] {
   font-feature-settings: "liga" 0;  /* Prevent ligatures */
   text-rendering: optimizeSpeed;    /* Prevent ligatures */
-  -webkit-tap-highlight-color: transparent;
 }
 svg > use > svg {  fill: inherit } /* Workaround for FF bug: https://bugzilla.mozilla.org/show_bug.cgi?id=265894 */
 body, img, svg, a, iframe { margin: 0; border: 0; color: inherit; fill: currentColor }
@@ -17,20 +19,30 @@ button, select { cursor: pointer }
 /* Grid
 ---------------------------------------------------------------- */
 .nrk-grid.nrk-grid { /* Double selector ensures grid nestability */
+  display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   font-size: 0;
 }
 .nrk-grid > * {
   box-sizing: border-box;
   -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
   flex-shrink: 0;
   display: inline-block;
   vertical-align: top;
   font-size: 1rem;
 }
+
+.nrk-grid--equalize > * {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.nrk-grid--equalize > * > * { width: 100% }
 
 
 /* Button
