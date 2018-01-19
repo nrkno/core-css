@@ -15,6 +15,40 @@ body, img, svg, a, iframe { margin: 0; border: 0; color: inherit; fill: currentC
 button, select, a, input, label, textarea { touch-action: manipulation } /* FastClick */
 button, select { cursor: pointer }
 
+
+/* Utilities
+---------------------------------------------------------------- */
+.nrk-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.nrk-unset {
+  -webkit-appearance: none;   /* Neded for <input> */
+  -moz-appearance: none;      /* Neded for <input> */
+  -ms-appearance: none;       /* Neded for <input> */
+  appearance: none;           /* Neded for <input> */
+  background: none;
+  border: 0 solid;
+  border-radius: 0;           /* Needed for <button> */
+  border-spacing: 0;          /* Needed for <table> */
+  border-collapse: collapse;  /* Needed for <table> */
+  box-sizing: border-box;
+  color: inherit;             /* Needed for <a> */
+  font: inherit;
+  height: auto;
+  list-style: none;           /* Needed for <ul> / <ol> */
+  margin: 0;
+  max-height: auto;           /* Needed for <fieldset> */
+  max-width: auto;            /* Needed for <fieldset> */
+  min-height: 0;              /* Needed for <fieldset> */
+  min-width: 0;               /* Needed for <fieldset> */
+  padding: 0;
+  text-align: inherit;
+  text-decoration: none;
+  width: auto;
+}
+
 /* Grid
 ---------------------------------------------------------------- */
 .nrk-grid.nrk-grid { /* Double selector ensures grid nestability */
@@ -209,13 +243,4 @@ button, select { cursor: pointer }
   width: 1px;
   height: 1px;
   clip: rect(0, 0, 0, 0);
-}
-
-
-/* Utilities
----------------------------------------------------------------- */
-.nrk-truncate {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
