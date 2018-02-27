@@ -16,9 +16,9 @@
     .docs-page h3 { font-size: 12px; letter-spacing: .05em; text-transform: uppercase; margin: 2em 0 -1em }
     .docs-page p { max-width: 700px; -webkit-font-smoothing: antialiased }.docs-page { padding: 4% }
 
-    .docs-equalize { margin: 15px 0; border: 1px solid #ddd }
-    .docs-equalize > * { outline: 1px solid #999; outline-offset: -10px}
-    .docs-equalize > * > * { font-size: 14px; padding: 20px; margin: 20px; border: 1px solid }
+    .docs-equalize, .docs-item { margin: 15px 2px; padding: 5px; border: 1px solid #ddd }
+    .docs-equalize > * { outline: 1px solid #999; outline-offset: -5px}
+    .docs-equalize > * > * { font-size: 14px; padding: 10px; margin: 15px; border: 1px solid }
     .prettyprint label span { color: inherit }
     .prettyprint label { cursor: pointer; font-weight: 500; text-decoration: underline }
     @media(min-width:720px){
@@ -32,6 +32,7 @@
   <ul class="docs-menu nrk-color-shade-1">
     <li><a href="#">Getting started</a></li>
     <li><a href="#grid">Grid</a></li>
+    <li><a href="#grid-nowrap">Grid nowrap</a></li>
     <li><a href="#grid-space">Grid spacing</a></li>
     <li><a href="#sizes">Sizing</a></li>
     <li><a href="#aspects">Aspects</a></li>
@@ -77,11 +78,28 @@
   &lt;div class="nrk-xs-6of12"&gt;And I'm a half too&lt;/div&gt;
 &lt;/div&gt;</pre>
 
+    <h2 id="grid-nowrap">Grid nowrap</h2>
+    <p>
+      Force all items on a single line by adding the grid modifier <code class="prettyprint">.nrk-grid--nowrap</code> (scrollbar below is not part of <code class="prettyprint">.nrk-grid--nowrap</code> - added for for demonstration only):
+    </p>
+    <div style="overflow:scroll">
+      <div class="nrk-grid nrk-grid--nowrap docs-grid">
+        <div class="nrk-xs-2of12 docs-item">Item</div>
+        <div class="nrk-xs-2of12 docs-item">Item</div>
+        <div class="nrk-xs-2of12 docs-item">Item</div>
+        <div class="nrk-xs-2of12 docs-item">Item</div>
+        <div class="nrk-xs-2of12 docs-item">Item</div>
+        <div class="nrk-xs-2of12 docs-item">Item</div>
+        <div class="nrk-xs-2of12 docs-item">Item</div>
+        <div class="nrk-xs-2of12 docs-item">Item</div>
+      </div>
+    </div>
+
     <h2 id="grid-space">Grid spacing</h2>
     <p>
       To accomplish spacing between grid items, add padding to direct children of <code class="prettyprint">.nrk-grid</code>.
       However, if you add further children to grid items, these are not direct children of <code class="prettyprint">.nrk-grid</code>, and therefore
-      not automatically equal height. Fix this by add the class  <code class="prettyprint">.nrk-grid--equalize</code>:
+      not automatically equal height. Fix this by add the class <code class="prettyprint">.nrk-grid--equalize</code>:
     </p>
     <div class="nrk-grid">
       <div class="nrk-xs-6of12" style="padding-right:15px">
