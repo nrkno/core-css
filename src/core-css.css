@@ -48,6 +48,9 @@ button, select { cursor: pointer }
   text-decoration: none;
   width: auto;
 }
+.nrk-unset::-ms-expand {      /* Needed to hide IE arrow in <select> */
+  display: none;
+}
 
 /* Grid
 ---------------------------------------------------------------- */
