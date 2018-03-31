@@ -13,10 +13,7 @@ const minifyCss = (css) => String(css)              // Work with file as string
 const buildCss = () => Promise
   .resolve(fs.readFileSync(path.join(SRC_PATH, CSS_FILENAME)))
   .then((css) => `/*! Copyright (c) 2015-${new Date().getFullYear()} NRK <opensource@nrk.no> */\n${css}`)
-  .then((css) => {
-    fs.writeFileSync(path.join(DIST_PATH, CSS_FILENAME), css);
-    fs.writeFileSync(path.join(DIST_PATH, CSS_FILENAME_MIN), minifyCss(css));
-  });
+  .then((css) => fs.writeFileSync(path.join(DIST_PATH, CSS_FILENAME_MIN), minifyCss(css)));
 
 buildCss()
   .then(() => console.log('Built CSS'))
