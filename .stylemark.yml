@@ -1,0 +1,17 @@
+name: NRK Core CSS
+
+headHtml: |
+  <script src="https://static.nrk.no/core-icons/latest/core-icons.min.js"></script>
+  <link rel="stylesheet" href="docs.css">
+
+assets:
+  - docs.css      # Include CSS for documentation
+  - core-css.css  # Include core CSS
+
+sidebar:
+  background: "#3d2351"
+  textColor: "#fff"
+
+order:
+  - Introduction
+  - Layout

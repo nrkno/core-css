@@ -1,11 +1,10 @@
-/* eslint-disable no-console, no-sync */
 const path = require('path');
 const fs = require('fs');
 
 const CSS_FILENAME = 'core-css.css';
 const CSS_FILENAME_MIN = 'core-css.min.css';
-const SRC_PATH = path.join(__dirname, '../src');
-const DIST_PATH = path.join(__dirname, '../dist');
+const SRC_PATH = path.join(__dirname, '../lib');
+const DIST_PATH = path.join(__dirname, '../lib');
 
 const minifyCss = (css) => String(css)              // Work with file as string
   .replace(/\/\*[^!][^*]*\*\//g, '')                // Strip comments

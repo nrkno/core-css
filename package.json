@@ -6,24 +6,22 @@
   "version": "1.8.0",
   "license": "MIT",
   "scripts": {
-    "build": "node bin/build",
-    "prebuild": "rimraf dist && mkdirp dist && cpx 'src/*.html' dist/",
+    "build": "node bin/build && stylemark -i lib -o docs -c .stylemark.yml",
     "publish:patch": "npm version patch -m 'Release patch %s' && npm run push",
     "publish:minor": "npm version minor -m 'Release minor %s' && npm run push",
     "publish:major": "npm version major -m 'Release major %s' && npm run push",
+    "start": "npm run build -- -w -b",
     "push": "git push && git push --tags && npm publish",
-    "static-publish": "static-publish publish --directory ./dist --package ./package.json --verbose --latest"
+    "static-publish": "npm run build && static-publish publish --directory ./docs --package ./package.json --verbose --latest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nrkno/core-css.git"
   },
-  "bugs": {
-    "url": "https://github.com/nrkno/core-css/issues"
-  },
   "devDependencies": {
     "cpx": "^1.5.0",
     "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "stylemark": "^0.6.5"
   }
 }
