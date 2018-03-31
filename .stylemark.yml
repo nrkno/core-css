@@ -5,8 +5,9 @@ headHtml: |
   <link rel="stylesheet" href="docs.css">
 
 assets:
-  - docs.css      # Include CSS for documentation
-  - core-css.css  # Include core CSS
+  - docs.css          # Include CSS for documentation
+  - core-css.css      # Include core CSS
+  - core-css.min.css  # Include core CSS minified as this goes to static.nrk.no
 
 sidebar:
   background: "#3d2351"
