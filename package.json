@@ -19,9 +19,6 @@
     "url": "git+https://github.com/nrkno/core-css.git"
   },
   "devDependencies": {
-    "cpx": "^1.5.0",
-    "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.2",
     "stylemark": "^0.6.5"
   }
 }
