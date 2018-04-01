@@ -1,5 +1,5 @@
 ---
-name: Getting started
+name: Core CSS
 category: Introduction
 ---
 
