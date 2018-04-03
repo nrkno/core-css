@@ -23,7 +23,7 @@ yarn add @nrk/core-css
 ```
 
 ```css
-@import '@nrk/core-css/dist/core-css.css';
+@import '@nrk/core-css/lib/core-css.css';
 ```
 
 ## Adding fonts and icons
@@ -45,10 +45,9 @@ First clone `@nrk/core-css` and install dependencies:
 ```bash
 git clone git@github.com:nrkno/core-css.git
 cd core-css
-npm install --no-optional
+npm install
+npm start # Your browser will open documentation with hot reloading
 ```
-
-Open `src/index.html` in the browser and refresh to see changes.
 
 ### Building and committing
 After having applied changes, remember to build the CSS, SVG and fonts before pushing the changes upstream.
