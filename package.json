@@ -12,7 +12,7 @@
     "publish:major": "npm version major -m 'Release major %s' && npm run push",
     "start": "npm run build -- -w -b",
     "push": "npm run build && git push && git push --tags && npm publish",
-    "static-publish": "npm run build && static-publish publish --directory ./docs --package ./package.json --verbose --latest"
+    "static-publish": "npm run build && static-publish --directory=docs --latest --major"
   },
   "repository": {
     "type": "git",
