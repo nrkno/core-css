@@ -1,6 +1,6 @@
 ---
 name: Colors
-category: Utilites
+category: Utilities
 ---
 
 > The colors provided in `core-css` is a subset of NRK's global brand colors, and is not owned by any specific product. To ease themability, the buttons, paginations and icons are set to inherit text color. Instead of mixing in hardcoded color values, use `.nrk-fade` to achieve a more subtle look.

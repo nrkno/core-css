@@ -1,6 +1,6 @@
 ---
 name: Aspects
-category: Utilites
+category: Utilities
 ---
 
 > Use `.nrk-aspect` to scale direct child elements of a container along 16:9 aspect. Change aspect by adding a modifier class `.nrk-aspect--1x1`, `.nrk-aspect--4x3`, `.nrk-aspect--9x16`

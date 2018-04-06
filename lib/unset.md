@@ -1,6 +1,6 @@
 ---
 name: Unset
-category: Utilites
+category: Utilities
 ---
 
 As browser support is limited for the css [unset property](https://developer.mozilla.org/en-US/docs/Web/CSS/unset), instead use class `.nrk-unset` to unset default browser styling. Add this to `<button>`, `<ul>`, `<select>`, links, headings, etc. to make them "unstyled" (inherits color and font from parent element):
