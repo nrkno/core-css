@@ -3,7 +3,7 @@
   "homepage": "https://static.nrk.no/core-css/latest/",
   "description": "Core CSS layer for web services.",
   "author": "NRK <opensource@nrk.no> (https://www.nrk.no/)",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "license": "MIT",
   "scripts": {
     "build": "node bin/build && stylemark -i lib -o docs -c .stylemark.yml",
