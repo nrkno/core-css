@@ -12,7 +12,7 @@ input, textarea, [contenteditable] {
 svg > use > svg {  fill: inherit }  /* Workaround for FF bug: https://bugzilla.mozilla.org/show_bug.cgi?id=265894 */
 body, img, svg, a, iframe { margin: 0; border: 0; color: inherit; fill: currentColor }
 button, select, a, input, label, textarea { touch-action: manipulation } /* FastClick */
-button, select { cursor: pointer }
+button:not([disabled]), select:not([disabled]) { cursor: pointer }
 [hidden] { display: none }          /* Polyfill hidden attribute for IE9/10 */
 
 
