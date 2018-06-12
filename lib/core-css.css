@@ -194,6 +194,36 @@ button, select { cursor: pointer }
   margin-left: 0;
 }
 
+/* Components
+---------------------------------------------------------------- */
+.nrk-search {
+  position: relative;
+}
+.nrk-input {
+  border: 0;
+  border-radius: 3px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  height: 41px;
+  padding: 0 15px 0 41px;
+  box-shadow: 0 2px 7px rgba(0,0,0,.2);
+}
+.nrk-search__button {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.nrk-search__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  background: #fff;
+  color: #26292a;
+  box-shadow: 0 2px 7px rgba(0,0,0,.2);
+}
+
 
 /* Sizes
 ---------------------------------------------------------------- */

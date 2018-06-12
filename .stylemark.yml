@@ -2,7 +2,14 @@ name: NRK Core CSS
 
 headHtml: |
   <script src="https://static.nrk.no/core-icons/latest/core-icons.min.js"></script>
+  <script src="https://static.nrk.no/core-components/major/1/core-components.min.js"></script>
   <link rel="stylesheet" href="docs.css">
+  <script>
+    // Expose JS components to window
+    Object.keys(window.coreComponents).forEach(function (key) {
+      window['core' + key[0].toUpperCase() + key.slice(1)] = coreComponents[key]
+    })
+  </script>
 
 assets:
   - docs.css          # Include CSS for documentation
