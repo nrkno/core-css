@@ -1,4 +1,5 @@
 const path = require('path');
+const {version} = require('../package.json');
 const fs = require('fs');
 
 const CSS_FILENAME = 'core-css.css';
@@ -11,7 +12,7 @@ const minifyCss = (css) => String(css)              // Work with file as string
 
 const buildCss = () => Promise
   .resolve(fs.readFileSync(path.join(LIB_PATH, CSS_FILENAME)))
-  .then((css) => `/*! Copyright (c) 2015-${new Date().getFullYear()} NRK <opensource@nrk.no> */\n${css}`)
+  .then((css) => `/*! Core CSS v${version} - Copyright (c) 2015-${new Date().getFullYear()} NRK <opensource@nrk.no> */\n${css}`)
   .then((css) => fs.writeFileSync(path.join(LIB_PATH, CSS_FILENAME_MIN), minifyCss(css)));
 
 buildCss()
