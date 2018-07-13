@@ -19,6 +19,6 @@
     "url": "git+https://github.com/nrkno/core-css.git"
   },
   "devDependencies": {
-    "stylemark": "^0.6.5"
+    "stylemark": "0.6.5"
   }
 }
