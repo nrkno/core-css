@@ -10,12 +10,15 @@
     "publish:patch": "npm version patch -m 'Release patch %s' && npm run push",
     "publish:minor": "npm version minor -m 'Release minor %s' && npm run push",
     "publish:major": "npm version major -m 'Release major %s' && npm run push",
-    "start": "cd lib && python -m SimpleHTTPServer 10001",
+    "start": "cd lib && http-server -o",
     "push": "npm run build && git commit -am \"Update version number\" && git push && git push --tags && npm publish",
     "static-publish": "npm run build && static-publish --directory=docs --latest --major --account=nrk-core"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nrkno/core-css.git"
+  },
+  "devDependencies": {
+    "http-server": "0.11.1"
   }
 }
