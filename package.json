@@ -12,7 +12,7 @@
     "publish:major": "npm version major -m 'Release major %s' && npm run push",
     "start": "http-server lib -o -p 10001 -a localhost -c-1",
     "push": "npm run build && git commit -am \"Update version number\" && git push && git push --tags && npm publish",
-    "static-publish": "npm run build && static-publish --directory=docs --latest --major --account=nrk-core"
+    "static-publish": "npm run build && static-publish --directory=lib --latest --major --account=nrk-core"
   },
   "repository": {
     "type": "git",
