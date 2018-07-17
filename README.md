@@ -29,8 +29,8 @@ yarn add @nrk/core-css
 ## Adding fonts and icons
 
 In order to use NRKs core fonts and icons, see these related projects:  
-https://github.com/nrkno/core-fonts  
-https://github.com/nrkno/core-icons  
+https://github.com/nrkno/core-fonts (Only available for NRK employees)
+https://github.com/nrkno/core-icons
 
 Once the fonts (*LFT Etica* and *NRK Etica Slab*) have been imported, add this to your project’s CSS:
 ```css
