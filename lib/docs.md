@@ -21,7 +21,7 @@ In general, semantic html-markup like `<nav>` does not require attributes for us
 <div class="nrk-grid">
   <div class="nrk-xs-12of12 nrk-md-3of12" style="padding-right:15px">
     <h3>Hide from everyone</h3>
-    Add the <a href="https://developer.mozilla.org/en/docs/Web/HTML/Global_attributes/hidden"><code>hidden</code> attribute</a> attribute to dynamically hide content from all users. Remove the attribute to show it again.
+    Add the <a href="https://developer.mozilla.org/en/docs/Web/HTML/Global_attributes/hidden"><code>hidden</code> attribute</a> to dynamically hide content from all users. Remove the attribute to show it again.
   </div>
   <div class="nrk-xs-12of12 nrk-md-3of12" style="padding-right:15px">
     <h3>Hide from screen readers only</h3>
@@ -41,7 +41,7 @@ In general, semantic html-markup like `<nav>` does not require attributes for us
 
 ## Grid
 
- The `.nrk-grid` is flex based, but with a fallback to inline-block rendering for older browsers. Used alone, the grid only places it's direct child elements next to each other, aligns height to match tallest sibling and wraps rows when needed. The grid can therefore be used just to align items, or to build more complex layouts when combined with [size classes](/#sizes):
+ The `.nrk-grid` is flex based, but with a fallback to inline-block rendering for older browsers. Used alone, the grid only places it's direct child elements next to each other, aligns height to match tallest sibling and wraps rows when needed. The grid can therefore be used just to align items, or to build more complex layouts when combined with [size classes](#sizes):
 
 ```html
 <!-- Horizontal menu -->
