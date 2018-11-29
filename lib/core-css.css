@@ -53,6 +53,7 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
   display: none;
 }
 
+
 /* Grid
 ---------------------------------------------------------------- */
 .nrk-grid.nrk-grid { /* Double selector ensures grid nestability */
@@ -170,6 +171,127 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
 .nrk-spin { animation: nrk-spin 1s infinite linear }
 @keyframes nrk-spin { to { transform: rotate(360deg) } }
 
+
+/* Forms
+---------------------------------------------------------------- */
+
+.nrk-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  position: relative;
+  vertical-align: middle;
+  background: white;
+  margin: 0;
+  border: 0;
+  max-width: 100%;
+  outline: 0;
+  color: inherit;
+  font: inherit;
+  line-height: 1.5;
+  box-shadow: 0 0 0 1px #e0e0e0;
+  border-radius: 4px;
+  padding: .5em .7em;
+  transition: box-shadow .2s;
+}
+
+.nrk-input:focus { box-shadow: 0 0 2px 1px #00b9f2 }
+.nrk-input[read-only] {
+  cursor: default !important;
+  background-color: #f6f6f6;
+}
+.nrk-input:disabled {
+  cursor: not-allowed !important;
+  opacity: .5;
+}
+
+/* reset ms styles */
+.nrk-input::-ms-clear,
+.nrk-input::-ms-expand,
+.nrk-input[type="radio"]::-ms-check,
+.nrk-input[type="checkbox"]::-ms-check {
+  display: none
+}
+
+.nrk-input::-ms-value {
+  background: inherit;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* reset number styles */
+.nrk-input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield !important;
+  appearance: textfield !important;
+}
+
+.nrk-input::-webkit-outer-spin-button,
+.nrk-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+
+.nrk-input[type="file"] {
+  cursor: pointer;
+}
+
+.nrk-input[type="radio"] { border-radius: 100% }
+
+.nrk-input[type="checkbox"],
+.nrk-input[type="radio"] {
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nrk-input[type="checkbox"]:checked {
+  background-position-x: 240%, 5%, 100%, 100%, 100%, 100%;
+  background-position-y: 70%, 10%, center, center, center, center;
+  background-image:
+    linear-gradient(135deg, currentColor 33%, transparent 34%),
+    linear-gradient(45deg, transparent 58%, currentcolor 59%),
+    linear-gradient(-135deg, currentColor 23%, transparent 23%),
+    linear-gradient(135deg, currentColor 33%, transparent 33%),
+    linear-gradient(45deg, currentcolor 28%, transparent 27%),
+    linear-gradient(-45deg, currentcolor 42%, transparent 41%);
+  background-size: 85% 99%, 33% 118%, 100% auto, 100% auto, 100% auto, 100% auto;
+  background-repeat: no-repeat;
+}
+
+.nrk-input[type="radio"]:checked  {
+  background-repeat: no-repeat;
+  background-image: radial-gradient(at center center, transparent 25%, currentcolor 28%);
+}
+
+textarea.nrk-input {
+  resize: vertical;
+  vertical-align: top;
+  line-height: inherit;
+  overflow: auto;
+}
+
+select.nrk-input:not([multiple]) {
+  background-image:
+    linear-gradient(45deg, transparent 46%, currentcolor 47%, currentcolor 49%, transparent 51%),
+    linear-gradient(-45deg, transparent 46%, currentcolor 47%, currentcolor 49%, transparent 51%);
+  background-size: 0.36em 100%, 0.36em 100%;
+  background-repeat: no-repeat;
+  background-position-x: calc(100% - 1.35em), calc(100% - 1em);
+  background-position-y: 0;
+  padding-right: 2.5em;
+  vertical-align: top;
+}
+
+select.nrk-input[multiple] {
+  vertical-align: top;
+}
 
 /* Pagination
 ---------------------------------------------------------------- */
