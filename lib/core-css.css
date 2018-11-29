@@ -225,9 +225,9 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
 
 /* reset number styles */
 .nrk-input[type="number"] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield !important;
-  appearance: textfield !important;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 .nrk-input::-webkit-outer-spin-button,
