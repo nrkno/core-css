@@ -185,12 +185,12 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
   background: white;
   margin: 0;
   border: 0;
-  max-width: 100%;
+  max-width: 100%; /* prevent overflowing parent container */
   outline: 0;
   color: inherit;
   font: inherit;
-  line-height: 1.5;
-  box-shadow: 0 0 0 1px #e0e0e0;
+  line-height: 1.5; /* so file inputs gets same height */
+  box-shadow: 0 0 0 1px #e0e0e0; /* instead of border, because ie11 doesn't render border */
   border-radius: 4px;
   padding: .5em .7em;
   transition: box-shadow .2s;
@@ -209,11 +209,11 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
 /* reset ms styles */
 .nrk-input::-ms-clear,
 .nrk-input::-ms-expand,
-.nrk-input[type="radio"]::-ms-check,
-.nrk-input[type="checkbox"]::-ms-check {
+.nrk-input::-ms-check {
   display: none
 }
 
+/* reset text+select ms styles */
 .nrk-input::-ms-value {
   background: inherit;
   color: inherit;
@@ -223,18 +223,15 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
   border: 0;
 }
 
-/* reset number styles */
 .nrk-input[type="number"] {
-  -webkit-appearance: none;
-  -moz-appearance: textfield;
-  appearance: textfield;
+  -moz-appearance: textfield; /* hides number arrows in ff */
 }
 
+/* hides number arrows in chrome, safari */ 
 .nrk-input::-webkit-outer-spin-button,
 .nrk-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-
 
 .nrk-input[type="file"] {
   cursor: pointer;
@@ -251,6 +248,10 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
   padding: 0;
 }
 
+/* draw custom check icon as a background-image using 
+currentColor and transparency to allow for customizing
+the foreground and background color on the element
+*/
 .nrk-input[type="checkbox"]:checked {
   background-position-x: 240%, 5%, 100%, 100%, 100%, 100%;
   background-position-y: 70%, 10%, center, center, center, center;
