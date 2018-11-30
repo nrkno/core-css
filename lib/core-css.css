@@ -253,16 +253,17 @@ currentColor and transparency to allow for customizing
 the foreground and background color on the element
 */
 .nrk-input[type="checkbox"]:checked {
-  background-position-x: 240%, 5%, 100%, 100%, 100%, 100%;
-  background-position-y: 70%, 10%, center, center, center, center;
+  background-position-x: 10%, 240%, 5%, 100%, 100%, 100%, 100%;
+  background-position-y: 40%, 70%, 10%, center, center, center, center;
   background-image:
+    linear-gradient(45deg, transparent 58%, currentColor 59%),
     linear-gradient(135deg, currentColor 33%, transparent 34%),
     linear-gradient(45deg, transparent 58%, currentcolor 59%),
     linear-gradient(-135deg, currentColor 23%, transparent 23%),
     linear-gradient(135deg, currentColor 33%, transparent 33%),
     linear-gradient(45deg, currentcolor 28%, transparent 27%),
     linear-gradient(-45deg, currentcolor 42%, transparent 41%);
-  background-size: 85% 99%, 33.7% 118%, 100% auto, 100% auto, 100% auto, 100% auto;
+  background-size: 35.5% 118%, 85% 99%, 33.7% 118%, 100% auto, 100% auto, 100% auto, 100% auto;
   background-repeat: no-repeat;
 }
 
