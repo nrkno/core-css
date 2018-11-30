@@ -262,7 +262,7 @@ the foreground and background color on the element
     linear-gradient(135deg, currentColor 33%, transparent 33%),
     linear-gradient(45deg, currentcolor 28%, transparent 27%),
     linear-gradient(-45deg, currentcolor 42%, transparent 41%);
-  background-size: 85% 99%, 33% 118%, 100% auto, 100% auto, 100% auto, 100% auto;
+  background-size: 85% 99%, 33.7% 118%, 100% auto, 100% auto, 100% auto, 100% auto;
   background-repeat: no-repeat;
 }
 
