@@ -208,12 +208,16 @@ Use `class="nrk-button nrk-button--o"` for rounded button with larger icon. [See
 
 ## Forms
 
-Use `.nrk-input` on your form inputs to get a consistent appearance across browsers.
-This will reset the various platform specific styles and provide a sane default style 
-which is easy to customize. Combine this with the `.nrk-grid` system to get a fully
+Use the `.nrk-input` on `<select>`, `<textarea>` and all `<input>` fields for a consistent appearance across browsers. This will reset the various platform specific styles and provide a sane default style
+which is [easy to customize](#customise). Combine this with the `.nrk-grid` system to get a fully
 functional form layout.
 
+<small><em>Note: The input type `range` is supported yet. For dates and times, use the
+[`@nrkno/core-datepicker`](https://static.nrk.no/core-components/latest/index.html?core-datepicker/readme.md)
+component.</em></small>
+
 <style>
+.my-input-focus:focus { box-shadow: 0 0 0 2px #00b9f2 }
 .doc-demo .nrk-grid fieldset input { margin-right: .2em }
 .doc-demo .nrk-grid fieldset label,
 .doc-demo .nrk-grid > label .nrk-input {
@@ -242,8 +246,8 @@ functional form layout.
       <input class="nrk-input nrk-xs-12of12" type="email" placeholder="E-mail">
     </label>
     <label class="nrk-xs-12of12 nrk-lg-4of12">
-      Telephone
-      <input class="nrk-input nrk-xs-12of12" type="tel" placeholder="Telephone">
+      Telephone (readonly)
+      <input class="nrk-input nrk-xs-12of12" type="tel" placeholder="Telephone" readonly>
     </label>
     <label class="nrk-xs-12of12 nrk-lg-4of12">
       Password
@@ -254,7 +258,7 @@ functional form layout.
       <input class="nrk-input nrk-xs-12of12" type="file">
     </label>
     <label class="nrk-xs-12of12 nrk-lg-4of12">
-      File disabled
+      File (disabled)
       <input class="nrk-input nrk-xs-12of12" type="file" disabled>
     </label>
     <label class="nrk-xs-12of12 nrk-lg-4of12">
@@ -295,15 +299,15 @@ functional form layout.
     </label>
 </div>
 ```
-To customize border color on an input, use `box-shadow`, and to set text 
-color on textual inputs and background color on checkboxes/radios, simple use `color`.
-To customize the check icon on checkboxes and the dot on radio buttons, use `background-color`.
 
-### Notes
+### Customise
 
-Some input types like range sliders are not supported yet. For dates and times, use the
-[`@nrkno/core-datepicker`](https://static.nrk.no/core-components/latest/index.html?core-datepicker/readme.md)
-component.
+Property | Affects | Notes | Examples
+:-- | :-- | :-- | :--
+`color` | Text color and graphics |Changes color of the arrow in `<select>`, and checked state of `input[type="checkbox"]` and `input[type="radio"]` | <input type="checkbox" class="nrk-input" style="color:#00b9f2" checked> &nbsp; <input type="checkbox" class="nrk-input" style="color:#ffe100;background-color:#141517" checked>
+`background-color` | Background color | *NB:* Do not use the shorthand `background` as this breaks the `select`, `checkbox` and `radio` graphics. | <select class="nrk-input" style="background-color:#e9e9e9"><option>Options</option></select>
+`box-shadow` | Border color and style | We use `box-shadow` instead of `border`, as this renders consistently on all elements in both modern browsers, and Internet Explorer 11 (having trouble with border or checkbox/radio elements). *NB:* Also resets `:focus` style | <input type="text" class="nrk-input" style="box-shadow:0 1px 2px rgba(0,0,0,.3);margin:0 5px 9px 0"><input type="text" class="nrk-input" style="box-shadow:0 0 0 2px rgba(0,0,0,.1)">
+`:focus`, `:checked`, `:disabled`, `:enabled`, `:required`, `:valid`, `:invalid`, `:not(:focus)`, `:not(:checked)` | State based styling | Change style based on input state. Use `box-shadow` or `outline` to set your own focus styling, i.e.:<br>`.nrk-input:focus { box-shadow: 0 0 0 2px #00b9f2 }` | <input type="text" class="nrk-input my-input-focus"><br>
 
 
 ---
