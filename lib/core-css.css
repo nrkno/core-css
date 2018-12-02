@@ -201,6 +201,7 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
 
 .nrk-input::-ms-clear, /* reset IE search clear */
 .nrk-input::-ms-expand, /* reset IE select arrow */
+.nrk-input::-ms-reveal, /* reset IE password reveal */
 .nrk-input::-ms-check { /* reset IE checkbox check */
   display: none;
 }
