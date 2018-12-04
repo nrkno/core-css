@@ -214,8 +214,8 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
 .nrk-input[type="radio"] { border-radius: 100% }
 .nrk-input[type="radio"],
 .nrk-input[type="checkbox"] {
-  width: 22px;
-  height: 22px;
+  width: 1.3em;
+  height: 1.3em;
   vertical-align: middle;
   cursor: pointer;
   padding: 0;
