@@ -19,6 +19,8 @@
     "url": "git+https://github.com/nrkno/core-css.git"
   },
   "devDependencies": {
-    "http-server": "0.11.1"
+    "autoprefixer": "9.4.0",
+    "http-server": "0.11.1",
+    "postcss": "7.0.6"
   }
 }

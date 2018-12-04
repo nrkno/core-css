@@ -1,7 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const {version} = require('../package.json');
-const lib = path.join(__dirname, '../lib');
+const fs = require('fs')
+const path = require('path')
+const { version } = require('../package.json')
+const lib = path.join(__dirname, '../lib')
+const autoprefixer = require('autoprefixer')
+const postcss = require('postcss')
 
 const minifyCss = (css) => String(css) // Work with file as string
   .replace(/\/\*[^!][^*]*\*\//g, '') // Strip comments
@@ -9,8 +11,9 @@ const minifyCss = (css) => String(css) // Work with file as string
 
 const buildCss = () => Promise
   .resolve(fs.readFileSync(path.join(lib, 'core-css.css')))
-  .then((css) => `/*! Core CSS v${version} - Copyright (c) 2015-${new Date().getFullYear()} NRK <opensource@nrk.no> */\n${css}`)
-  .then((css) => fs.writeFileSync(path.join(lib, 'core-css.min.css'), minifyCss(css)))
+  .then(css => `/*! Core CSS v${version} - Copyright (c) 2015-${new Date().getFullYear()} NRK <opensource@nrk.no> */\n${css}`)
+  .then(css => postcss([autoprefixer]).process(css, { from: 'lib/core-css.css', to: 'lib/core-css.min.css' }))
+  .then(css => fs.writeFileSync(path.join(lib, 'core-css.min.css'), minifyCss(css)))
 
 const buildDocs = () => Promise
   .resolve(fs.readFileSync(path.join(lib, 'docs.md')))
