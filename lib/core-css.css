@@ -25,9 +25,6 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
   text-overflow: ellipsis;
 }
 .nrk-unset {
-  -webkit-appearance: none;   /* Neded for <input> */
-  -moz-appearance: none;      /* Neded for <input> */
-  -ms-appearance: none;       /* Neded for <input> */
   appearance: none;           /* Neded for <input> */
   background: none;
   border: 0 solid;
@@ -57,18 +54,12 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
 /* Grid
 ---------------------------------------------------------------- */
 .nrk-grid.nrk-grid { /* Double selector ensures grid nestability */
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   font-size: 0;
 }
 .nrk-grid > * {
   box-sizing: border-box;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
   display: inline-block;
   vertical-align: top;
@@ -76,8 +67,6 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
 }
 
 .nrk-grid--equalize > * {
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
 }
 .nrk-grid--equalize > * > * {
@@ -175,8 +164,6 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
 /* Forms
 ---------------------------------------------------------------- */
 .nrk-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   box-sizing: border-box;
   position: relative;
