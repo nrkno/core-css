@@ -5,7 +5,7 @@ const lib = path.join(__dirname, '../lib')
 const autoprefixer = require('autoprefixer')
 const postcss = require('postcss')
 
-const prefixer = autoprefixer({ browsers: ['last 1 version', '> 1%', 'ie 9-11'] })
+const prefixer = autoprefixer({ browsers: ['last 1 version', '> .1%', 'ie 9-11'] })
 
 const minifyCss = css => String(css) // Work with file as string
   .replace(/\/\*[^!][^*]*\*\//g, '') // Strip comments
