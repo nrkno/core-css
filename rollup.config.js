@@ -1,25 +1,33 @@
 import autoprefixer from 'autoprefixer'
 import postcss from 'rollup-plugin-postcss'
 import serve from 'rollup-plugin-serve'
-import pkg from './package.json'
 import header from 'postcss-header'
+import path from 'path'
+import fs from 'fs'
+import { version } from './package.json'
 
-const banner = `/*! @nrk/core-css v${pkg.version} - Copyright (c) 2018-${new Date().getFullYear()} NRK */`
-const plugins = [
-  postcss({
-    minimize: { preset: 'default' },
-    sourceMap: !process.env.ROLLUP_WATCH,
-    plugins: [
-      autoprefixer({ browsers: ['last 1 version', '> .1%', 'ie 9-11'] }),
-      header({ header: banner })
-    ],
-    extract: true
-  }),
-  !process.env.ROLLUP_WATCH || serve('lib')
-]
+if (!process.env.ROLLUP_WATCH) {
+  const readme = String(fs.readFileSync(path.join('lib', 'readme.md')))
+  const versioned = readme.replace(/\/major\/\d+/, `/major/${version.match(/\d+/)}`)
+  fs.writeFileSync(path.join('lib', 'readme.md'), versioned)
+}
 
 export default [{
   input: 'lib/core-css.js',
-  output: { file: 'lib/core-css.min.js', format: 'cjs', banner },
-  plugins
+  output: {
+    file: 'lib/core-css.min.js',
+    format: 'cjs'
+  },
+  plugins: [
+    postcss({
+      minimize: { preset: 'default' },
+      sourceMap: !process.env.ROLLUP_WATCH,
+      plugins: [
+        autoprefixer({ browsers: ['last 1 version', '> .1%', 'ie 9-11'] }),
+        header({ header: `/*! @nrk/core-css v${version} - Copyright (c) 2018-${new Date().getFullYear()} NRK */` })
+      ],
+      extract: true
+    }),
+    !process.env.ROLLUP_WATCH || serve('lib')
+  ]
 }]
