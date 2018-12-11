@@ -212,10 +212,6 @@ Use the `.nrk-input` on `<select>`, `<textarea>` and all `<input>` fields for a 
 which is [easy to customize](#customise). Combine this with the `.nrk-grid` system to get a fully
 functional form layout.
 
-<small><em>Note: The input type `range` is supported yet. For dates and times, use the
-[`@nrkno/core-datepicker`](https://static.nrk.no/core-components/latest/index.html?core-datepicker/readme.md)
-component.</em></small>
-
 <style>
 .my-input-focus:focus { box-shadow: 0 0 0 2px #00b9f2 }
 .doc-demo .nrk-grid fieldset input { margin-right: .2em }
@@ -293,12 +289,26 @@ component.</em></small>
         <label><input class="nrk-input" type="radio" value="two" name="radio" disabled> Disabled</label>
       </fieldset>
     </div>
-    <label class="nrk-xs-12of12">
+    <label class="nrk-xs-12of12 nrk-lg-8of12">
       Textarea
       <textarea class="nrk-input nrk-xs-12of12" placeholder="Textarea text" rows="4"></textarea>
     </label>
+    <div class="nrk-xs-12of12 nrk-lg-4of12">
+      <fieldset class="nrk-unset">
+        <legend class="nrk-unset">Switches</legend>
+        <label><input class="nrk-switch" type="checkbox" value="Checkbox" checked> Checked</label>
+        <label><input class="nrk-switch" type="checkbox" value="Checkbox"> Unchecked</label>
+        <label><input class="nrk-switch" type="checkbox" value="Checkbox" disabled> Disabled</label>
+      </fieldset>
+    </div>
 </div>
 ```
+
+For switches you need to use the `.nrk-switch` class on an `input[type="checbox"]` element. 
+Note that `input[type="range"]` is supported yet. For dates and times, use the
+[`@nrkno/core-datepicker`](https://static.nrk.no/core-components/latest/index.html?core-datepicker/readme.md)
+component.
+
 
 ### Customise
 

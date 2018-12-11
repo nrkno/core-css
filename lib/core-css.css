@@ -262,6 +262,39 @@ select.nrk-input:not([multiple]) {
   vertical-align: top;
 }
 
+.nrk-switch {
+  appearance: none;
+  box-sizing: border-box;
+  position: relative;
+  vertical-align: middle;
+  background: #fff no-repeat;
+  margin: 0;
+  border: 0;
+  max-width: 100%; /* prevent overflowing parent container */
+  outline: 0;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.15); /* IE11 doesn't render border on checkbox and radio */
+  color: #141517;
+  font: inherit;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 3em;
+  height: 1.5em;
+  opacity: .5;
+  background-image: radial-gradient(circle at .75em center, transparent 0.55em, currentColor .6em);
+}
+
+.nrk-switch::-ms-check { /* reset IE checkbox check */
+  display: none;
+}
+
+.nrk-switch:focus { box-shadow: 0 0 2px 1px #00b9f2 }
+.nrk-switch:disabled { opacity: .2; cursor: not-allowed !important }
+
+.nrk-switch:checked:checked {
+  opacity: 1;
+  background-image: radial-gradient(circle at 2.25em center,transparent .55em,currentColor .6em);
+}
+
 /* Pagination
 ---------------------------------------------------------------- */
 .nrk-pagination { overflow: hidden; white-space: nowrap; text-align: center; font-size: 0 }
