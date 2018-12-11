@@ -290,9 +290,9 @@ select.nrk-input:not([multiple]) {
 .nrk-switch:focus { box-shadow: 0 0 2px 1px #00b9f2 }
 .nrk-switch:disabled { opacity: .2; cursor: not-allowed !important }
 
-.nrk-switch:checked:checked {
+.nrk-switch:checked {
   opacity: 1;
-  background-image: radial-gradient(circle at 2.25em center,transparent .55em,currentColor .6em);
+  background-image: radial-gradient(circle at 2.25em center, transparent .55em, currentColor .6em);
 }
 
 /* Pagination
