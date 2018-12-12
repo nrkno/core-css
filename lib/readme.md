@@ -314,6 +314,7 @@ Property | Affects | Notes | Examples
 ---
 <style>
 br + .nrk-switch:checked { color:blue }
+.doc-demo .nrk-switch { margin: 2px 0 }
 </style>
 
 ## Switches
