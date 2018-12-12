@@ -1,8 +1,6 @@
 # Core CSS
 
-## `@nrk/core-css` exposes a set of class names to ease creating backwards compatible layouts and standard NRK styling. The code is built on BEM-conventions and is namespaced `nrk-` to play nice with existing projects.
-
----
+> `@nrk/core-css` exposes a set of class names to ease creating backwards compatible layouts and standard NRK styling. The code is built on BEM-conventions and is namespaced `nrk-` to play nice with existing projects.
 
 ## Installation
 
@@ -11,8 +9,6 @@ Insert the code below into the `<head>` of your page to get started:
 ```html
 <link rel="stylesheet" href="https://static.nrk.no/core-css/major/1/core-css.min.css">
 ```
-
----
 
 ## Accessibility
 
@@ -37,7 +33,7 @@ In general, semantic html-markup like `<nav>` does not require attributes for us
   </div>
 </div>
 
----
+
 
 ## Grid
 
@@ -129,7 +125,7 @@ To accomplish spacing between grid items, add padding to direct children of `.nr
 
 </div>
 
----
+
 
 ## Sizes
 
@@ -164,7 +160,7 @@ Breakpoints are rem-based (root font size) to improve accessibility. Sizes behav
 </div>
 ```
 
----
+
 
 ## Button
 
@@ -183,7 +179,7 @@ Use `class="nrk-button nrk-button--o"` for rounded button with larger icon. [See
 <button class="nrk-button">Text and icon <svg class="nrk-fade" width="30" height="30" aria-hidden="true"><use xlink:href="#nrk-arrow-right-long" /></svg></button>
 ```
 
----
+
 
 ## Pagination
 
@@ -204,7 +200,7 @@ Use `class="nrk-button nrk-button--o"` for rounded button with larger icon. [See
 </div>
 ```
 
----
+
 
 ## Inputs
 
@@ -212,18 +208,18 @@ Use the `.nrk-input` on `<select>`, `<textarea>` and all `<input>` fields for a 
 which is [easy to customize](#customise). Combine this with the `.nrk-grid` system to get a fully
 functional form layout.
 
-<style>
-.my-input-focus:focus { box-shadow: 0 0 0 2px #00b9f2 }
-.doc-demo .nrk-grid fieldset input { margin-right: .2em }
-.doc-demo .nrk-grid fieldset label,
-.doc-demo .nrk-grid > label .nrk-input {
-  display: block;
-  margin-bottom: .2em;
-}
-</style>
 
 ```html
 <!--demo-->
+<style>
+  .my-input-focus:focus { box-shadow: 0 0 0 2px #00b9f2 }
+  .docs-demo .nrk-grid fieldset input { margin-right: .2em }
+  .docs-demo .nrk-grid fieldset label,
+  .docs-demo .nrk-grid > label .nrk-input {
+    display: block;
+    margin-bottom: .2em;
+}
+</style>
 <div class="nrk-grid">
     <label class="nrk-xs-12of12 nrk-lg-4of12">
       Text
@@ -311,10 +307,10 @@ Property | Affects | Notes | Examples
 `:focus`, `:checked`, `:disabled`, `:enabled`, `:required`, `:valid`, `:invalid`, `:not(:focus)`, `:not(:checked)` | State based styling | Change style based on input state. Use `box-shadow` or `outline` to set your own focus styling, i.e.:<br>`.nrk-input:focus { box-shadow: 0 0 0 2px #00b9f2 }` | <input type="text" class="nrk-input my-input-focus">
 
 
----
+
 <style>
 br + .nrk-switch:checked { color:blue }
-.doc-demo .nrk-switch { margin: 2px 0 }
+.docs-demo .nrk-switch { margin: 2px 0 }
 </style>
 
 ## Switches
@@ -340,7 +336,7 @@ Property | Affects | Examples
 `:checked` | Checked state | `.nrk-switch:checked { color: blue }` <br><input type="checkbox" class="nrk-switch">
 
 
----
+
 
 ## Aspects
 
@@ -373,7 +369,7 @@ You can quite easily extend core-css by adding custom aspects to your css:
   })
 </script>
 
----
+
 
 ## Colors
 
@@ -417,7 +413,7 @@ To ease accessible contrast on icons, `@nrk/core-css` sets `fill` of `<svg>` tag
 </button>
 ```
 
----
+
 
 ## Truncate
 
@@ -429,7 +425,7 @@ Use the class `.nrk-truncate` if you have an element containing a long text that
 ```
 
 
----
+
 
 ## Unset
 
@@ -444,7 +440,7 @@ As browser support is limited for the css [unset property](https://developer.moz
 <select class="nrk-unset"><option>An unset select</option></select>
 ```
 
----
+
 
 ## FAQ
 
