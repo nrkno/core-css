@@ -262,6 +262,32 @@ select.nrk-input:not([multiple]) {
   vertical-align: top;
 }
 
+.nrk-switch {
+  appearance: none;
+  vertical-align: middle;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  box-shadow: inset -1.5em 0 0 2px, inset 0 0 0 2px;
+  border-radius: 50px;
+  cursor: pointer;
+  color: inherit;
+  font: inherit; /* Scale according to parent font size */
+  width: 3em;
+  height: 1.5em;
+  opacity: .5;
+  background: #fff;
+  transition: .2s;
+}
+
+.nrk-switch::-ms-check { display: none } /* reset IE checkbox check */
+.nrk-switch:disabled { opacity: .2; cursor: not-allowed !important }
+.nrk-switch:active:hover { box-shadow: inset -1em 0 0 2px, inset 0 0 0 2px }
+.nrk-switch:focus { box-shadow: inset -1.5em 0 0 2px, inset 0 0 0 2px, 0 0 2px 1px #00b9f2 }
+.nrk-switch:checked { opacity: 1; box-shadow: inset 1.5em 0 0 2px, inset 0 0 0 2px }
+.nrk-switch:checked:focus { box-shadow: inset 1.5em 0 0 2px, inset 0 0 0 2px, 0 0 2px 1px #00b9f2 }
+.nrk-switch:checked:active:hover { box-shadow: inset 1em 0 0 2px, inset 0 0 0 2px }
+
 /* Pagination
 ---------------------------------------------------------------- */
 .nrk-pagination { overflow: hidden; white-space: nowrap; text-align: center; font-size: 0 }
