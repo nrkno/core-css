@@ -289,7 +289,7 @@ functional form layout.
         <label><input class="nrk-input" type="radio" value="two" name="radio" disabled> Disabled</label>
       </fieldset>
     </div>
-    <label class="nrk-xs-12of12 nrk-lg-8of12">
+    <label class="nrk-xs-12of12">
       Textarea
       <textarea class="nrk-input nrk-xs-12of12" placeholder="Textarea text" rows="4"></textarea>
     </label>
