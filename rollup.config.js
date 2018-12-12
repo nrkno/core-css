@@ -14,13 +14,14 @@ if (!process.env.ROLLUP_WATCH) {
 
 export default [{
   input: 'lib/core-css.js',
-  output: {
-    file: 'lib/core-css.min.js',
-    format: 'cjs'
-  },
+  output: { file: 'lib/core-css.min.js', format: 'cjs' },
   plugins: [
     postcss({
-      minimize: { preset: 'default' },
+      minimize: {
+        reduceIdents: {
+          keyframes: false
+        }
+      },
       sourceMap: !process.env.ROLLUP_WATCH,
       plugins: [
         autoprefixer({ browsers: ['last 1 version', '> .1%', 'ie 9-11'] }),
