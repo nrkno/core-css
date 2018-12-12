@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="core-css.min.css">
+
 # Core CSS
 
 > `@nrk/core-css` exposes a set of class names to ease creating backwards compatible layouts and standard NRK styling. The code is built on BEM-conventions and is namespaced `nrk-` to play nice with existing projects.
