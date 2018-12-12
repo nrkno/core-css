@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="core-css.min.css">
+<style>html { font: 100%/1.5 'LFT Etica', sans-serif }</style>
 
 # Core CSS
 
