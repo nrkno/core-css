@@ -1,5 +1,8 @@
+<!--demo
+<script async src="https://static.nrk.no/core-icons/major/5/core-icons.min.js"></script>
 <link rel="stylesheet" href="core-css.min.css">
 <style>html { font: 100%/1.5 'LFT Etica', sans-serif }</style>
+demo-->
 
 # Core CSS
 
