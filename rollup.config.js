@@ -8,7 +8,7 @@ import { version } from './package.json'
 
 if (!process.env.ROLLUP_WATCH) {
   const readme = String(fs.readFileSync(path.join('lib', 'readme.md')))
-  const versioned = readme.replace(/\/major\/\d+/, `/major/${version.match(/\d+/)}`)
+  const versioned = readme.replace(/core-css\/major\/\d+/, `core-css/major/${version.match(/\d+/)}`)
   fs.writeFileSync(path.join('lib', 'readme.md'), versioned)
 }
 
