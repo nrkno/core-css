@@ -10,33 +10,80 @@ demo-->
 
 ## Installation
 
-Insert the code below into the `<head>` of your page to get started:
+To get started do:
 
-```html
-<link rel="stylesheet" href="https://static.nrk.no/core-css/major/1/core-css.min.css">
+```bash
+npm install @nrk/core-css --save-exact
 ```
 
-Or import it into your stylesheet:
+Then, import `core-css` into your stylesheet:
 
 ```css
-@import '@nrk/core-css/core-css.css'    // css
-@import '@nrk/core-css/core-css.sass'   // sass
-@import '@nrk/core-css/core-css.less'   // less
-@import '@nrk/core-css/core-css.style'  // stylus
+
+@import '@nrk/core-css/core-css.css';               // css
+@import '~@nrk/core-css/core-css.scss';             // sass
+@import '@nrk/core-css/core-css.less';              // less
+@import 'node_modules/@nrk/core-css/core-css.styl'  // stylus
 ```
 
 Importing the Sass, Less or Stylus styles will also expose mixins for all classes in `core-css`.
-For instance, the class `nrk-button` will have a mixin `nrk-button()` in Sass. This makes it
+For instance, the class `.nrk-button` will have a mixin `nrk-button()` in Less. This makes it
 possible the extend the base style on components while still using your own class names.
 
-Sass example:
+Sass:
 
-```sass
+```scss
+@import '~@nrk/core-css/core-css.scss';
 
 .my-button {
   @include nrk-button;
   color: green;
 }
+```
+
+Less:
+
+```scss
+@import '@nrk/core-css/core-css.less';
+
+.my-button {
+  .nrk-button();
+  color: red;
+}
+```
+
+Stylus:
+
+```less
+@import 'node_modules/@nrk/core-css/core-css.styl'
+
+.my-button {
+  nrk-button()
+  color: red
+}
+```
+
+
+CSS modules:
+
+```css
+@import '@nrk/core-css/core-css.css';
+
+.my-button {
+  composes: nrk-button;
+  color: red;
+}
+
+```
+
+Alternatively, you can load `core-css` as an external stylesheet on your page. 
+Note that this is not the recommended way to consume `core-css` since this will expose 
+class names that might collide on your page and it includes all CSS even though it's not used.
+
+Insert the code below into the `<head>` of your page to load it externally:
+
+```html
+<link rel="stylesheet" href="https://static.nrk.no/core-css/major/1/core-css.min.css">
 ```
 
 
