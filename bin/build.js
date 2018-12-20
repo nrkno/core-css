@@ -33,9 +33,10 @@ function nestRules (rules, target, nested = [], mediaQuery = false) {
     const [selector, rule] = rules.shift()
     const className = selector.match(/\.-?[_a-zA-Z]+[_a-zA-Z0-9-]*/)
 
-    if (selector.indexOf('@media') === 0) {
+    if (selector.match(/@(media|supports)/)) {
       nestRules(rule, target, nested, selector)
     } else if (className) {
+      let ruleset = rule
       let mixin
       switch (target) {
         case 'scss': mixin = `@mixin ${className[0].slice(1)}`; break
@@ -46,19 +47,19 @@ function nestRules (rules, target, nested = [], mediaQuery = false) {
       const prefix = selector.slice(0, className.index)
       const suffix = selector.slice(className.index + className[0].length)
 
-      if (mediaQuery) {
-        parent[1].push([mediaQuery, rule])
-      } else if (prefix) {
+      if (prefix) {
         if (target === 'scss') {
-          parent[1].push([`@at-root ${prefix}#{&}${suffix.replace(className[0], '#{&}')}`, rule])
+          ruleset = [[`@at-root ${prefix}#{&}${suffix.replace(className[0], '#{&}')}`, rule]]
         } else {
-          parent[1].push([`${prefix}&${suffix}`, rule])
+          ruleset = [[`${prefix}&${suffix}`, rule]]
         }
       } else if (suffix) {
-        parent[1].push([`&${suffix}`, rule])
-      } else {
-        parent[1].push(...rule)
+        ruleset = [[`&${suffix}`, rule]]
       }
+
+      if (mediaQuery) ruleset = [[mediaQuery, ruleset]]
+
+      parent[1].push(...ruleset)
     } else {
       nested.push([selector, rule])
     }
