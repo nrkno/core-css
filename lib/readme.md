@@ -6,7 +6,7 @@ demo-->
 
 # Core CSS
 
-> `@nrk/core-css` exposes a set of class names to ease creating backwards compatible layouts and standard NRK styling. The code is built on BEM-conventions and is namespaced `nrk-` to play nice with existing projects.
+> `@nrk/core-css` exposes a set of class names and mixins to ease creating backwards compatible layouts and standard NRK styling. The code is built on BEM-conventions and is namespaced `nrk-` to play nice with existing projects.
 
 ## Installation
 
@@ -15,6 +15,30 @@ Insert the code below into the `<head>` of your page to get started:
 ```html
 <link rel="stylesheet" href="https://static.nrk.no/core-css/major/1/core-css.min.css">
 ```
+
+Or import it into your stylesheet:
+
+```css
+@import '@nrk/core-css/core-css.css'    // css
+@import '@nrk/core-css/core-css.sass'   // sass
+@import '@nrk/core-css/core-css.less'   // less
+@import '@nrk/core-css/core-css.style'  // stylus
+```
+
+Importing the Sass, Less or Stylus styles will also expose mixins for all classes in `core-css`.
+For instance, the class `nrk-button` will have a mixin `nrk-button()` in Sass. This makes it
+possible the extend the base style on components while still using your own class names.
+
+Sass example:
+
+```sass
+
+.my-button {
+  @include nrk-button;
+  color: green;
+}
+```
+
 
 ## Accessibility
 
