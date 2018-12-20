@@ -6,3 +6,6 @@
 docs/
 *.map
 *min.js
+/core-css*
+*.tgz
+/package
