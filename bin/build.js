@@ -27,34 +27,21 @@ function parseStyle ({ style }) {
     [prop, `${style.getPropertyValue(prop)}${style.getPropertyPriority(prop).replace(/./, '!$&')}`])
 }
 
-function className (selector) {
-  return selector.match(/\.-?[_a-zA-Z]+[_a-zA-Z0-9-]*/)
-}
-
-// TODO &#{&}, but only add & if -- or __ or .
 function nestScss (rules) {
-  const clone = rules.slice()
-  const needsAmpersand = /(--', '__', '.')/
-  const canNest = /(--|__|,|\s|\.|:)/
   const nested = []
-
   while (rules.length) {
     const [selector, rule] = rules.shift()
-    const matchSelector = className(selector)
-    const parentRule = matchSelector && nested.filter(([selector]) => {
-      const matchKey = className(selector)
-      return matchKey && matchKey[0] === matchSelector[0]
-    })[0]
+    const className = selector.match(/\.-?[_a-zA-Z]+[_a-zA-Z0-9-]*/)
 
+    if (className) {
+      const mixin = `@mixin ${className[0].slice(1)}`
+      const parent = nested.filter(([m]) => m === mixin)[0] || nested[nested.push([mixin, []]) - 1]
+      const prefix = selector.slice(0, className.index)
+      const suffix = selector.slice(className.index + className[0].length).replace(className[0], '#{&}')
 
-    if (parentRule) {
-      const prefix = selector.slice(0, matchSelector.index)
-      const suffix = selector.slice(matchSelector.index + matchSelector[0].length)
-      if (prefix) {
-        parentRule[1].push([`@at-root ${prefix}#{&}${suffix}`, rule])
-      } else {
-        parentRule[1].push([`&${suffix}`, rule])
-      }
+      if (prefix) parent[1].push([`@at-root ${prefix}#{&}${suffix}`, rule])
+      else if (suffix) parent[1].push([`&${suffix}`, rule])
+      else parent[1].push(...rule)
     } else {
       nested.push([selector, rule])
     }
@@ -79,4 +66,3 @@ fs.writeFileSync('test.scss',
     )
   )
 )
-
