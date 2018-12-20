@@ -64,21 +64,12 @@ button,  a { touch-action: manipulation } /* FastClick */
   font-size: 0;
 }
 
-.nrk-grid--equalize > * {
-  display: flex;
-}
-.nrk-grid--equalize > * > * {
-  width: 100%;
-}
-
-.nrk-grid--nowrap.nrk-grid--nowrap {
+.nrk-grid--equalize > * { display: flex }
+.nrk-grid--equalize > * > * { width: 100% }
+.nrk-grid--nowrap > * { white-space: normal }
+.nrk-grid--nowrap { /* This declaration must be after .nrk-grid--nowrap > * */
   white-space: nowrap;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
-}
-.nrk-grid--nowrap > * {
-  white-space: normal;
 }
 
 

@@ -45,11 +45,11 @@ function nestRules (rules, target, nested = [], mediaQuery = false) {
       }
       const parent = nested.filter(([m]) => m === mixin)[0] || nested[nested.push([mixin, []]) - 1]
       const prefix = selector.slice(0, className.index)
-      const suffix = selector.slice(className.index + className[0].length)
+      const suffix = selector.slice(className.index + className[0].length).replace(className[0], '&')
 
       if (prefix) {
         if (target === 'scss') {
-          ruleset = [[`@at-root ${prefix}#{&}${suffix.replace(className[0], '#{&}')}`, rule]]
+          ruleset = [[`@at-root ${prefix}#{&}${suffix.replace('&', '#{&}')}`, rule]]
         } else {
           ruleset = [[`${prefix}&${suffix}`, rule]]
         }
