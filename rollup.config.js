@@ -14,17 +14,13 @@ if (!process.env.ROLLUP_WATCH) {
 
 const plugins = [
   postcss({
-    minimize: {
-      reduceIdents: {
-        keyframes: false
-      }
-    },
+    extract: true,
+    minimize: { reduceIdents: { keyframes: false } },
     sourceMap: !process.env.ROLLUP_WATCH,
     plugins: [
       autoprefixer({ browsers: ['last 1 version', '> .1%', 'ie 9-11'] }),
       header({ header: `/*! @nrk/core-css v${version} - Copyright (c) 2018-${new Date().getFullYear()} NRK */` })
-    ],
-    extract: true
+    ]
   }),
   !process.env.ROLLUP_WATCH || serve('lib')
 ]

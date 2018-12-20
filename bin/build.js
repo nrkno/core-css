@@ -4,7 +4,7 @@ const path = require('path')
 const lib = path.join(__dirname, '../lib')
 const dom = new JSDOM(`<style>${fs.readFileSync(path.join(lib, 'core-css.css'))}</style>`)
 const css = dom.window.document.styleSheets[0]
-const extensions = ['sass', 'less', 'styl']
+const extensions = ['scss', 'less', 'styl']
 
 // Returns array of [[selector, props], ...] to support multiple equal selectors and consistent order
 function parseCss ({ cssRules }) {
@@ -28,30 +28,32 @@ function parseStyle ({ style }) {
     [prop, `${style.getPropertyValue(prop)}${style.getPropertyPriority(prop).replace(/./, '!$&')}`])
 }
 
-function nestRules (rules, target) {
-  const nested = []
+function nestRules (rules, target, nested = [], mediaQuery = false) {
   while (rules.length) {
     const [selector, rule] = rules.shift()
     const className = selector.match(/\.-?[_a-zA-Z]+[_a-zA-Z0-9-]*/)
 
-    if (className) {
+    if (selector.indexOf('@media') === 0) {
+      nestRules(rule, target, nested, selector)
+    } else if (className) {
       let mixin
       switch (target) {
-        case 'sass': mixin = `@mixin ${className[0].slice(1)}`; break
-        case 'less': mixin = `${className[0]}()`; break
+        case 'scss': mixin = `@mixin ${className[0].slice(1)}`; break
         case 'styl': mixin = `${className[0].slice(1)}()`; break
+        case 'less': mixin = `${className[0]}()`; break
       }
       const parent = nested.filter(([m]) => m === mixin)[0] || nested[nested.push([mixin, []]) - 1]
       const prefix = selector.slice(0, className.index)
       const suffix = selector.slice(className.index + className[0].length)
 
-      if (prefix) {
-        let tagSelector
-        switch (target) {
-          case 'sass': tagSelector = `@at-root ${prefix}#{&}${suffix.replace(className[0], '#{&}')}`; break
-          case 'less': case 'styl': tagSelector = `${prefix}&${suffix}`; break
+      if (mediaQuery) {
+        parent[1].push([mediaQuery, rule])
+      } else if (prefix) {
+        if (target === 'scss') {
+          parent[1].push([`@at-root ${prefix}#{&}${suffix.replace(className[0], '#{&}')}`, rule])
+        } else {
+          parent[1].push([`${prefix}&${suffix}`, rule])
         }
-        parent[1].push([tagSelector, rule])
       } else if (suffix) {
         parent[1].push([`&${suffix}`, rule])
       } else {
@@ -73,6 +75,5 @@ function toString (rules, pad = '') {
 
 extensions.forEach(ext => {
   const result = toString(nestRules(parseCss(css), ext))
-  fs.writeFileSync(path.join(lib, `core-css.${ext}`), result)
   fs.writeFileSync(path.join(__dirname, '..', `core-css.${ext}`), result)
 })
