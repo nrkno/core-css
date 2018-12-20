@@ -50,17 +50,18 @@ button,  a { touch-action: manipulation } /* FastClick */
 
 /* Grid
 ---------------------------------------------------------------- */
-.nrk-grid.nrk-grid { /* Double selector ensures grid nestability */
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 0;
-}
 .nrk-grid > * {
   box-sizing: border-box;
   flex-shrink: 0;
   display: inline-block;
   vertical-align: top;
   font-size: 1rem;
+}
+
+.nrk-grid { /* This declaration must be after .nrk-grid > * */
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0;
 }
 
 .nrk-grid--equalize > * {
