@@ -1,3 +1,4 @@
+import classesToMixins from './bin/classesToMixins.js'
 import autoprefixer from 'autoprefixer'
 import postcss from 'rollup-plugin-postcss'
 import serve from 'rollup-plugin-serve'
@@ -19,7 +20,12 @@ const plugins = [
     sourceMap: !process.env.ROLLUP_WATCH,
     plugins: [
       autoprefixer({ browsers: ['last 1 version', '> .1%', 'ie 9-11'] }),
-      header({ header: `/*! @nrk/core-css v${version} - Copyright (c) 2018-${new Date().getFullYear()} NRK */` })
+      header({ header: `/*! @nrk/core-css v${version} - Copyright (c) 2018-${new Date().getFullYear()} NRK */` }),
+      classesToMixins({
+        styl: './core-css.styl',
+        scss: './core-css.scss',
+        less: './core-css.less'
+      })
     ]
   }),
   !process.env.ROLLUP_WATCH || serve('lib')
