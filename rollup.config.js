@@ -33,10 +33,9 @@ const plugins = [
 
 export default [{
   input: 'lib/core-css.js',
-  output: { file: 'lib/core-css.min.js', format: 'cjs' },
-  plugins
-}, {
-  input: 'lib/core-css.js',
-  output: { file: 'core-css.min.js', format: 'cjs' },
+  output: [
+    { format: 'cjs', file: 'core-css.min.js' },
+    { format: 'cjs', file: 'lib/core-css.min.js' }
+  ],
   plugins
 }]
