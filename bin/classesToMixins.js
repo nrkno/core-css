@@ -17,9 +17,9 @@ function postcssToArray (root) {
   root.nodes.forEach((node) => {
     if (node.type === 'atrule') rules.push([`@${node.name} ${node.params}`, postcssToArray(node)])
     if (node.type === 'rule') {
-      const style = node.nodes.map((decl) => {
-        return [decl.prop, `${decl.value}${decl.important ? '!important' : ''}`]
-      })
+      const style = node.nodes.reduce((acc, { prop, value, important }) => {
+        return acc.concat(prop ? [[prop, `${value}${important ? '!important' : ''}`]] : [])
+      }, [])
       node.selector.split(',').forEach((selector) => {
         rules.push([selector.trim(), style])
       })
