@@ -164,7 +164,8 @@ button,  a { touch-action: manipulation } /* FastClick */
   max-width: 100%; /* prevent overflowing parent container */
   outline: 0;
   color: #141517;
-  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
   line-height: 1.5; /* Makes input[type="file"] equal height as other inputs */
   box-shadow: 0 0 0 1px rgba(0,0,0,.15); /* IE11 doesn't render border on checkbox and radio */
   border-radius: 4px;
