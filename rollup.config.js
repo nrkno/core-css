@@ -15,6 +15,7 @@ fs.writeFileSync(path.join(__dirname, 'lib', 'readme.md'), versioned)
 export default [{
   input: 'lib/core-css.js',
   output: [
+    { format: 'cjs', file: 'core-css.js' },
     { format: 'cjs', file: 'core-css.min.js' },
     { format: 'cjs', file: 'lib/core-css.min.js' }
   ],

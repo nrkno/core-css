@@ -10,13 +10,15 @@ demo-->
 
 ## Installation
 
-To get started do:
 
-```bash
+First, install the package from NPM:
+
+
+```sh
 npm install @nrk/core-css --save-exact
 ```
 
-Then, import `core-css` into your stylesheet:
+then import it into your stylesheet:
 
 ```css
 
@@ -30,7 +32,7 @@ Importing the Sass, Less or Stylus styles will also expose mixins for all classe
 For instance, the class `.nrk-button` will have a mixin `nrk-button()` in Less. This makes it
 possible the extend the base style on components while still using your own class names.
 
-Sass:
+### Sass
 
 ```scss
 @import '~@nrk/core-css/core-css.scss';
@@ -41,7 +43,7 @@ Sass:
 }
 ```
 
-Less:
+### Less
 
 ```scss
 @import '@nrk/core-css/core-css.less';
@@ -52,7 +54,7 @@ Less:
 }
 ```
 
-Stylus:
+### Stylus
 
 ```less
 @import 'node_modules/@nrk/core-css/core-css.styl'
@@ -64,7 +66,7 @@ Stylus:
 ```
 
 
-CSS modules:
+### CSS modules
 
 ```css
 @import '@nrk/core-css/core-css.css';
@@ -76,11 +78,9 @@ CSS modules:
 
 ```
 
-Alternatively, you can load `core-css` as an external stylesheet on your page. 
-Note that this is not the recommended way to consume `core-css` since this will expose 
-class names that might collide on your page and it includes all CSS even though it's not used.
+### For prototyping
 
-Insert the code below into the `<head>` of your page to load it externally:
+When prototyping you can load the stylesheet in the `<head>` of your page:
 
 ```html
 <link rel="stylesheet" href="https://static.nrk.no/core-css/major/1/core-css.min.css">

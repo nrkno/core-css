@@ -15,8 +15,7 @@
     "static-publish": "npm run build && static-publish --directory=lib --latest --major --account=nrk-core"
   },
   "files": [
-    "/core-css*",
-    "lib"
+    "/core-css*"
   ],
   "repository": {
     "type": "git",

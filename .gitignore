@@ -3,9 +3,6 @@
 /npm-debug*
 /node_modules
 /yarn-error*
-docs/
 *.map
-*min.js
+*.min*
 /core-css*
-*.tgz
-/package
