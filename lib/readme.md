@@ -10,9 +10,7 @@ demo-->
 
 ## Installation
 
-
 First, install the package from NPM:
-
 
 ```sh
 npm install @nrk/core-css --save-exact

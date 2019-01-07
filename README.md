@@ -1,30 +1,7 @@
 # @nrk/core-css ![Release](https://img.shields.io/github/release/nrkno/core-css.svg)
-Core CSS layer for web services.
+> Base styling and utilities for all NRK projects.
 
-## Installation
-
-### Install via static.nrk.no (preferred)
-```html
-<link rel="stylesheet" href="https://static.nrk.no/core-css/latest/core-css.min.css">
-```
-or version
-```html
-<link rel="stylesheet" href="https://static.nrk.no/core-css/X.X.X/core-css.min.css">
-```
-
-### Install with `npm`
-```bash
-npm install @nrk/core-css --save
-```
-
-### Install with `yarn`
-```bash
-yarn add @nrk/core-css
-```
-
-```css
-@import '@nrk/core-css/lib/core-css.css';
-```
+For installation and usage, read the [documentation](https://static.nrk.no/core-css/latest/).
 
 ## Adding fonts and icons
 
