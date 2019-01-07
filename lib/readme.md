@@ -6,15 +6,86 @@ demo-->
 
 # Core CSS
 
-> `@nrk/core-css` exposes a set of class names to ease creating backwards compatible layouts and standard NRK styling. The code is built on BEM-conventions and is namespaced `nrk-` to play nice with existing projects.
+> `@nrk/core-css` exposes a set of class names and mixins to ease creating backwards compatible layouts and standard NRK styling. The code is built on BEM-conventions and is namespaced `nrk-` to play nice with existing projects.
 
 ## Installation
 
-Insert the code below into the `<head>` of your page to get started:
+
+First, install the package from NPM:
+
+
+```sh
+npm install @nrk/core-css --save-exact
+```
+
+then import it into your stylesheet:
+
+```css
+
+@import '@nrk/core-css/core-css.css';               // css
+@import '~@nrk/core-css/core-css.scss';             // sass
+@import '@nrk/core-css/core-css.less';              // less
+@import 'node_modules/@nrk/core-css/core-css.styl'  // stylus
+```
+
+Importing the Sass, Less or Stylus styles will also expose mixins for all classes in `core-css`.
+For instance, the class `.nrk-button` will have a mixin `nrk-button()` in Less. This makes it
+possible the extend the base style on components while still using your own class names.
+
+### Sass
+
+```scss
+@import '~@nrk/core-css/core-css.scss';
+
+.my-button {
+  @include nrk-button;
+  color: green;
+}
+```
+
+### Less
+
+```scss
+@import '@nrk/core-css/core-css.less';
+
+.my-button {
+  .nrk-button();
+  color: red;
+}
+```
+
+### Stylus
+
+```less
+@import 'node_modules/@nrk/core-css/core-css.styl'
+
+.my-button {
+  nrk-button()
+  color: red
+}
+```
+
+
+### CSS modules
+
+```css
+@import '@nrk/core-css/core-css.css';
+
+.my-button {
+  composes: nrk-button;
+  color: red;
+}
+
+```
+
+### For prototyping
+
+When prototyping you can load the stylesheet in the `<head>` of your page:
 
 ```html
 <link rel="stylesheet" href="https://static.nrk.no/core-css/major/1/core-css.min.css">
 ```
+
 
 ## Accessibility
 

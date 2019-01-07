@@ -11,11 +11,8 @@ input, textarea, [contenteditable] {
 }
 svg > use > svg {  fill: inherit }  /* Workaround for FF bug: https://bugzilla.mozilla.org/show_bug.cgi?id=265894 */
 body, img, svg, a, iframe { margin: 0; border: 0; color: inherit; fill: currentColor }
-button, select, a, input, label, textarea { touch-action: manipulation } /* FastClick */
-button:not([disabled]), select:not([disabled]) { cursor: pointer }
-main { display: block }             /* Polyfill main element for IE9/10/11 */
+button,  a { touch-action: manipulation } /* FastClick */
 [hidden] { display: none }          /* Polyfill hidden attribute for IE9/10 */
-
 
 /* Utilities
 ---------------------------------------------------------------- */
@@ -33,6 +30,7 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
   border-collapse: collapse;  /* Needed for <table> */
   box-sizing: border-box;
   color: inherit;             /* Needed for <a> */
+  cursor: inherit;            /* Needed for form elements */
   font: inherit;
   height: auto;
   list-style: none;           /* Needed for <ul> / <ol> */
@@ -53,11 +51,6 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
 
 /* Grid
 ---------------------------------------------------------------- */
-.nrk-grid.nrk-grid { /* Double selector ensures grid nestability */
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 0;
-}
 .nrk-grid > * {
   box-sizing: border-box;
   flex-shrink: 0;
@@ -66,21 +59,18 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
   font-size: 1rem;
 }
 
-.nrk-grid--equalize > * {
+.nrk-grid { /* This declaration must be after .nrk-grid > * */
   display: flex;
-}
-.nrk-grid--equalize > * > * {
-  width: 100%;
+  flex-wrap: wrap;
+  font-size: 0;
 }
 
-.nrk-grid--nowrap.nrk-grid--nowrap {
+.nrk-grid--equalize > * { display: flex }
+.nrk-grid--equalize > * > * { width: 100% }
+.nrk-grid--nowrap > * { white-space: normal }
+.nrk-grid--nowrap { /* This declaration must be after .nrk-grid--nowrap > * */
   white-space: nowrap;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
-}
-.nrk-grid--nowrap > * {
-  white-space: normal;
 }
 
 
@@ -174,7 +164,8 @@ main { display: block }             /* Polyfill main element for IE9/10/11 */
   max-width: 100%; /* prevent overflowing parent container */
   outline: 0;
   color: #141517;
-  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
   line-height: 1.5; /* Makes input[type="file"] equal height as other inputs */
   box-shadow: 0 0 0 1px rgba(0,0,0,.15); /* IE11 doesn't render border on checkbox and radio */
   border-radius: 4px;
@@ -344,7 +335,6 @@ select.nrk-input:not([multiple]) {
   .nrk-xl-7of12 { width:58.3333% } .nrk-xl-8of12 { width:66.6666% } .nrk-xl-9of12 { width:75%}
   .nrk-xl-10of12 { width:83.3333% } .nrk-xl-11of12 { width:91.6666% } .nrk-xl-12of12 { width:100%}
 }
-
 
 /* Aspects
 ---------------------------------------------------------------- */
