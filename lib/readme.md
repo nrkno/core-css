@@ -10,7 +10,7 @@ demo-->
 
 ## Installation
 
-First, install the package from NPM:
+### Using NPM
 
 ```sh
 npm install @nrk/core-css --save-exact
@@ -76,9 +76,9 @@ possible the extend the base style on components while still using your own clas
 
 ```
 
-### For prototyping
+### Using static
 
-When prototyping you can load the stylesheet in the `<head>` of your page:
+Recommended only for prototyping.
 
 ```html
 <link rel="stylesheet" href="https://static.nrk.no/core-css/major/1/core-css.min.css">
