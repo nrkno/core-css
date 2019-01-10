@@ -30,7 +30,7 @@ Importing the Sass, Less or Stylus styles will also expose mixins for all classe
 For instance, the class `.nrk-button` will have a mixin `nrk-button()` in Less. This makes it
 possible the extend the base style on components while still using your own class names.
 
-### Sass
+Sass:
 
 ```scss
 @import '~@nrk/core-css/core-css.scss';
@@ -41,7 +41,7 @@ possible the extend the base style on components while still using your own clas
 }
 ```
 
-### Less
+Less:
 
 ```scss
 @import '@nrk/core-css/core-css.less';
@@ -52,7 +52,7 @@ possible the extend the base style on components while still using your own clas
 }
 ```
 
-### Stylus
+Stylus:
 
 ```less
 @import 'node_modules/@nrk/core-css/core-css.styl'
@@ -64,7 +64,7 @@ possible the extend the base style on components while still using your own clas
 ```
 
 
-### CSS modules
+CSS modules:
 
 ```css
 @import '@nrk/core-css/core-css.css';
