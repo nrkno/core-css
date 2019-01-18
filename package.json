@@ -3,7 +3,7 @@
   "homepage": "https://static.nrk.no/core-css/latest/",
   "description": "Core CSS layer for web services.",
   "author": "NRK <opensource@nrk.no> (https://www.nrk.no/)",
-  "version": "1.12.1",
+  "version": "1.12.0",
   "license": "MIT",
   "scripts": {
     "build": "rollup --config",
