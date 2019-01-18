@@ -361,9 +361,9 @@ select.nrk-input:not([multiple]) {
 /* Accessibility
 ---------------------------------------------------------------- */
 .nrk-sr, .nrk-sr-focus:not(:focus) {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  clip: rect(0, 0, 0, 0);
+  position: absolute !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  clip: rect(0, 0, 0, 0) !important;
 }
