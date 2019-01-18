@@ -256,6 +256,7 @@ select.nrk-input:not([multiple]) {
 .nrk-switch {
   appearance: none;
   vertical-align: middle;
+  background: transparent;
   margin: 0;
   border: 0;
   outline: 0;
@@ -267,7 +268,6 @@ select.nrk-input:not([multiple]) {
   width: 3em;
   height: 1.5em;
   opacity: .5;
-  background: #fff;
   transition: .2s;
 }
 
@@ -361,9 +361,9 @@ select.nrk-input:not([multiple]) {
 /* Accessibility
 ---------------------------------------------------------------- */
 .nrk-sr, .nrk-sr-focus:not(:focus) {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  clip: rect(0, 0, 0, 0);
+  position: absolute !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  clip: rect(0, 0, 0, 0) !important;
 }

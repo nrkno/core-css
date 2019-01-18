@@ -1,4 +1,4 @@
-import classesToMixins from './bin/classesToMixins.js'
+import classesToMixins from 'postcss-classes-to-mixins'
 import autoprefixer from 'autoprefixer'
 import postcss from 'rollup-plugin-postcss'
 import serve from 'rollup-plugin-serve'
