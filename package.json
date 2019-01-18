@@ -29,7 +29,7 @@
     "postcss-classes-to-mixins": "0.0.3",
     "postcss-header": "1.0.0",
     "rollup": "1.1.0",
-    "rollup-plugin-babel": "4.3.0",
+    "rollup-plugin-babel": "4.3.1",
     "rollup-plugin-buble": "0.19.6",
     "rollup-plugin-commonjs": "9.2.0",
     "rollup-plugin-html": "0.2.1",
