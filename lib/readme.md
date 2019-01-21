@@ -405,7 +405,7 @@ Use `.nrk-switch` on an `input[type="checbox"]` element to create switches.
 Property | Affects | Examples
 :-- | :-- | :--
 `color` | Color of track | <input type="checkbox" class="nrk-switch" style="color:blue">
-`background` | Color of knob | <input type="checkbox" class="nrk-switch" style="background:yellow">
+`background-color` | Color of knob | <input type="checkbox" class="nrk-switch" style="background-color:yellow">
 `font-size` | Size | <input type="checkbox" class="nrk-switch" style="font-size:20px">
 `opacity` | Opacity | <input type="checkbox" class="nrk-switch" style="opacity:1">
 `:checked` | Checked state | `.nrk-switch:checked { color: blue }` <br><input type="checkbox" class="nrk-switch">
