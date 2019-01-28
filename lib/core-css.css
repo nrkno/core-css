@@ -1,7 +1,6 @@
 /* Base
 ---------------------------------------------------------------- */
 html {
-  font: 100%/1.5 Helvetica, Arial, sans-serif;
   text-size-adjust: 100%;           /* Mobile font size */
   -webkit-tap-highlight-color: transparent;
 }
