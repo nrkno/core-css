@@ -22,13 +22,13 @@
     "url": "git+https://github.com/nrkno/core-css.git"
   },
   "devDependencies": {
-    "autoprefixer": "9.4.5",
-    "postcss": "7.0.13",
-    "postcss-classes-to-mixins": "0.0.3",
+    "autoprefixer": "9.4.6",
+    "postcss": "7.0.14",
+    "postcss-classes-to-mixins": "0.0.6",
     "postcss-header": "1.0.0",
     "rollup": "1.1.2",
-    "rollup-plugin-postcss": "1.6.3",
-    "rollup-plugin-serve": "1.0.0",
+    "rollup-plugin-postcss": "2.0.1",
+    "rollup-plugin-serve": "1.0.1",
     "standard": "12.0.1"
   },
   "dependencies": {}
