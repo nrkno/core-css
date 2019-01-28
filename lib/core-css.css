@@ -29,7 +29,6 @@ button,  a { touch-action: manipulation } /* FastClick */
   border-collapse: collapse;  /* Needed for <table> */
   box-sizing: border-box;
   color: inherit;             /* Needed for <a> */
-  cursor: inherit;            /* Needed for form elements */
   font: inherit;
   height: auto;
   list-style: none;           /* Needed for <ul> / <ol> */
