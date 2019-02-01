@@ -39,7 +39,8 @@ button,  a { touch-action: manipulation } /* FastClick */
   min-width: auto;            /* Needed for <fieldset> */
   padding: 0;
   text-align: inherit;
-  text-decoration: none;
+  text-transform: inherit;
+  text-decoration: inherit;
   width: auto;
 }
 .nrk-unset::-ms-expand {      /* Needed to hide IE arrow in <select> */
