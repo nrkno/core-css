@@ -6,7 +6,8 @@ demo-->
 
 # Core CSS
 
-> `@nrk/core-css` exposes a set of class names and mixins to ease creating backwards compatible layouts and standard NRK styling. The code is built on BEM-conventions and is namespaced `nrk-` to play nice with existing projects.
+> `@nrk/core-css` is the Base styling and utilities for all NRK projects. 
+> It exposes a set of class names and mixins to ease creating backwards compatible layouts and standard NRK styling. The code is built on BEM-conventions and is namespaced `nrk-` to play nice with existing projects.
 
 ## Installation
 
@@ -84,6 +85,18 @@ Recommended only for prototyping.
 <link rel="stylesheet" href="https://static.nrk.no/core-css/major/1/core-css.min.css">
 ```
 
+## Fonts and icons
+
+In order to use NRKs core fonts and icons, see these related projects:  
+https://github.com/nrkno/core-fonts (Only available for NRK employees)
+https://github.com/nrkno/core-icons
+
+Once the fonts (*LFT Etica* and *NRK Etica Slab*) have been imported, add this to your project’s CSS:
+```css
+html {
+  font-family: 'LFT Etica', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+```
 
 ## Accessibility
 
@@ -515,6 +528,9 @@ As browser support is limited for the css [unset property](https://developer.moz
 <select class="nrk-unset"><option>An unset select</option></select>
 ```
 
+## Browser support
+
+The supported browsers are: IE 9+, Edge, Safari, Opera, Chrome and Firefox.
 
 
 ## FAQ
