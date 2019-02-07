@@ -1,19 +1,34 @@
 # @nrk/core-css ![Release](https://img.shields.io/github/release/nrkno/core-css.svg)
-> Base styling and utilities for all NRK projects.
+> Base styling and utilities for all NRK projects. 
+> `@nrk/core-css` exposes a set of class names and mixins to ease creating backwards compatible layouts and standard NRK styling. The code is built on BEM-conventions and is namespaced `nrk-` to play nice with existing projects.
 
-For installation and usage, read the [documentation](https://static.nrk.no/core-css/latest/).
+## Documentation
+https://static.nrk.no/core-css/latest/
 
-## Adding fonts and icons
+## Installation
 
-In order to use NRKs core fonts and icons, see these related projects:  
-https://github.com/nrkno/core-fonts (Only available for NRK employees)
-https://github.com/nrkno/core-icons
+### Using NPM
 
-Once the fonts (*LFT Etica* and *NRK Etica Slab*) have been imported, add this to your project’s CSS:
+```sh
+npm install @nrk/core-css --save-exact
+```
+
+then import it into your stylesheet:
+
 ```css
-html {
-  font-family: 'LFT Etica', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+
+@import '@nrk/core-css/core-css.css';               // css
+@import '@nrk/core-css/core-css.scss';              // sass
+@import '@nrk/core-css/core-css.less';              // less
+@import 'node_modules/@nrk/core-css/core-css.styl'  // stylus
+```
+
+### Using static
+
+Recommended only for prototyping.
+
+```html
+<link rel="stylesheet" href="https://static.nrk.no/core-css/major/1/core-css.min.css">
 ```
 
 ## Local development

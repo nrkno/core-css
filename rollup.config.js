@@ -8,9 +8,14 @@ import fs from 'fs'
 import { version } from './package.json'
 
 const isBuild = !process.env.ROLLUP_WATCH
-const readme = String(fs.readFileSync(path.join('lib', 'readme.md')))
-const versioned = readme.replace(/core-css\/major\/\d+/, `core-css/major/${version.match(/\d+/)}`)
-fs.writeFileSync(path.join(__dirname, 'lib', 'readme.md'), versioned)
+
+if (isBuild) {
+  const readmes = ['readme.md', path.join('lib', 'readme.md')]
+  readmes.map((readme) => [readme, String(fs.readFileSync(readme))]).forEach(([path, readme]) => {
+    const versioned = readme.replace(/core-css\/major\/\d+/, `core-css/major/${version.match(/\d+/)}`)
+    fs.writeFileSync(path, versioned)
+  })
+}
 
 export default [{
   input: 'lib/core-css.js',
