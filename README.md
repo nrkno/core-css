@@ -18,7 +18,7 @@ then import it into your stylesheet:
 ```css
 
 @import '@nrk/core-css/core-css.css';               // css
-@import '~@nrk/core-css/core-css.scss';             // sass
+@import '@nrk/core-css/core-css.scss';              // sass
 @import '@nrk/core-css/core-css.less';              // less
 @import 'node_modules/@nrk/core-css/core-css.styl'  // stylus
 ```
