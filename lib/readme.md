@@ -57,6 +57,10 @@ If you use `dart-sass` remember to put `node_modules` in [`includePaths`](https:
 
 #### Less
 
+```sh
+npm install @nrk/core-css
+```
+
 ```less
 @import '@nrk/core-css/core-css.less';             // mixins and globals
 @import '@nrk/core-css/core-css-mixins-only.less'; // ..or mixins and only
@@ -69,6 +73,10 @@ If you use `dart-sass` remember to put `node_modules` in [`includePaths`](https:
 
 #### Stylus
 
+```sh
+npm install @nrk/core-css
+```
+
 ```styl
 @import 'node_modules/@nrk/core-css/core-css.styl'              // mixins and globals
 @import 'node_modules/@nrk/core-css/core-css-mixins-only.styl'; // ..or mixins and only
@@ -80,6 +88,10 @@ If you use `dart-sass` remember to put `node_modules` in [`includePaths`](https:
 ```
 
 #### CSS modules
+
+```sh
+npm install @nrk/core-css
+```
 
 ```css
 @import '@nrk/core-css/core-css.css';
