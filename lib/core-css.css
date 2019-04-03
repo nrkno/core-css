@@ -13,7 +13,8 @@ input, textarea, [contenteditable] {
 /* SVGs should by default inherit color from text for better accessibility.
 The "fill" attribute however overwrites this CSS rule, making this default definition safe.
 Also, add workaround for FF bug: https://bugzilla.mozilla.org/show_bug.cgi?id=265894 */
-svg, svg > use > svg {  fill: inherit }
+svg { fill: currentColor }
+svg > use > svg {  fill: inherit }
 
 /* Remove default margin, border and setup color inheritance for saner styling */
 body, img, svg, a, iframe { margin: 0; border: 0; color: inherit }
