@@ -1,17 +1,29 @@
-/* Base
+/* Global stylings for a healtier application
 ---------------------------------------------------------------- */
 html {
-  text-size-adjust: 100%;           /* Mobile font size */
-  -webkit-tap-highlight-color: transparent;
+  text-size-adjust: 100%; /* Fix mobiles that does not respect meta viewport for font-scaling */
+  -webkit-tap-highlight-color: transparent; /* Prevent ugly dark overlay when pressing links in iOS */
 }
+/* Ligatures are nice, but some browsers also puts ligatures in input fields.
+This can break search and other submittions, as for instance "ft" is converted to a single character  */
 input, textarea, [contenteditable] {
-  font-feature-settings: "liga" 0;  /* Prevent ligatures */
-  text-rendering: optimizeSpeed;    /* Prevent ligatures */
+  font-feature-settings: "liga" 0;
+  text-rendering: optimizeSpeed;
 }
-svg > use > svg {  fill: inherit }  /* Workaround for FF bug: https://bugzilla.mozilla.org/show_bug.cgi?id=265894 */
-body, img, svg, a, iframe { margin: 0; border: 0; color: inherit; fill: currentColor }
-button,  a { touch-action: manipulation } /* FastClick */
-[hidden] { display: none }          /* Polyfill hidden attribute for IE9/10 */
+/* SVGs should by default inherit color from text for better accessibility.
+The "fill" attribute however overwrites this CSS rule, making this default definition safe.
+Also, add workaround for FF bug: https://bugzilla.mozilla.org/show_bug.cgi?id=265894 */
+svg, svg > use > svg {  fill: inherit }
+
+/* Remove default margin, border and setup color inheritance for saner styling */
+body, img, svg, a, iframe { margin: 0; border: 0; color: inherit }
+
+/* Speeds up click event on older phones as links and buttons now
+are expected to be a clicked, and does not wait for pinch */
+button,  a { touch-action: manipulation }
+
+/* Polyfill hidden attribute for IE9/10 */
+[hidden] { display: none }
 
 /* Utilities
 ---------------------------------------------------------------- */
