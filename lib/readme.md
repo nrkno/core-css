@@ -6,78 +6,25 @@ demo-->
 
 # Core CSS
 
-> `@nrk/core-css` is the Base styling and utilities for all NRK projects. 
+> `@nrk/core-css` is the Base styling and utilities for all NRK projects.
 > It exposes a set of class names and mixins to ease creating backwards compatible layouts and standard NRK styling. The code is built on BEM-conventions and is namespaced `nrk-` to play nice with existing projects.
 
 ## Installation
 
+Core CSS comes with six global rules to fix browser behaviour. Most notably, they prevent ligatures in inputs (as ligatures can break inputs), polyfill for the `hidden` attribute, faster link/button clicks on touch and SVG color inheritance. Including globals is recommended, but can be skipped when using Sass, Less or Stylus mixins in widgets.
+
+#### CSS
+
 ### Using NPM
 
 ```sh
-npm install @nrk/core-css --save-exact
+npm install @nrk/core-css
 ```
 
 then import it into your stylesheet:
 
 ```css
-
-@import '@nrk/core-css/core-css.css';               // css
-@import '@nrk/core-css/core-css.scss';              // sass
-@import '@nrk/core-css/core-css.less';              // less
-@import 'node_modules/@nrk/core-css/core-css.styl'  // stylus
-```
-
-Importing the Sass, Less or Stylus styles will also expose mixins for all classes in `core-css`.
-For instance, the class `.nrk-button` will have a mixin `nrk-button()` in Less. This makes it
-possible the extend the base style on components while still using your own class names.
-
-Sass:
-
-```scss
-@import '@nrk/core-css/core-css.scss';
-
-.my-button {
-  @include nrk-button;
-  color: green;
-}
-```
-
-If you use `dart-sass` remember to put `node_modules` in [`includePaths`](https://github.com/sass/node-sass#includepaths).
-If you're using `node-sass` you need to use `@import '~@nrk/core-css/core-css.scss'`.
-
-Less:
-
-```scss
-@import '@nrk/core-css/core-css.less';
-
-.my-button {
-  .nrk-button();
-  color: red;
-}
-```
-
-Stylus:
-
-```less
-@import 'node_modules/@nrk/core-css/core-css.styl'
-
-.my-button {
-  nrk-button()
-  color: red
-}
-```
-
-
-CSS modules:
-
-```css
 @import '@nrk/core-css/core-css.css';
-
-.my-button {
-  composes: nrk-button;
-  color: red;
-}
-
 ```
 
 ### Using static
@@ -88,13 +35,65 @@ Recommended only for prototyping.
 <link rel="stylesheet" href="https://static.nrk.no/core-css/major/1/core-css.min.css">
 ```
 
+#### Sass
+
+```sh
+npm install @nrk/core-css
+```
+
+```scss
+@import '@nrk/core-css/core-css.scss';             // mixins and globals
+@import '@nrk/core-css/core-css-mixins-only.scss'; // ..or mixins and only
+
+.my-button {
+  @include nrk-button; // All Core CSS classes are now available as @include mixins
+  color: green;
+}
+```
+
+### Note
+
+If you use `dart-sass` remember to put `node_modules` in [`includePaths`](https://github.com/sass/node-sass#includepaths). If you're using `node-sass` you need to use `@import '~@nrk/core-css/core-css.scss'`.
+
+#### Less
+
+```less
+@import '@nrk/core-css/core-css.less';             // mixins and globals
+@import '@nrk/core-css/core-css-mixins-only.less'; // ..or mixins and only
+
+.my-button {
+  .nrk-button(); // All Core CSS classes are now available as mixins
+  color: red;
+}
+```
+
+#### Stylus
+
+```styl
+@import 'node_modules/@nrk/core-css/core-css.styl'              // mixins and globals
+@import 'node_modules/@nrk/core-css/core-css-mixins-only.styl'; // ..or mixins and only
+
+.my-button {
+  nrk-button() // All Core CSS classes are now available as mixins
+  color: red
+}
+```
+
+#### CSS modules
+
+```css
+@import '@nrk/core-css/core-css.css';
+
+.my-button {
+  composes: nrk-button;
+  color: red;
+}
+```
+
 ## Fonts and icons
 
-In order to use NRKs core fonts and icons, see these related projects:  
-https://github.com/nrkno/core-fonts (Only available for NRK employees)
-https://github.com/nrkno/core-icons
+In order to use NRKs core fonts and icons, see these related projects:   [Core Fonts](https://github.com/nrkno/core-fonts) (available to NRK employees only) and [Core Icons](https://github.com/nrkno/core-icons). Once the fonts have been imported, add this to your project’s CSS:
 
-Once the fonts (*LFT Etica* and *NRK Etica Slab*) have been imported, add this to your project’s CSS:
 ```css
 html {
   font-family: 'LFT Etica', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -107,19 +106,19 @@ In general, semantic html-markup like `<nav>` does not require attributes for us
 
 <div class="nrk-grid">
   <div class="nrk-xs-12of12 nrk-md-3of12" style="padding-right:15px">
-    <h3>Hide from everyone</h3>
+    <h3 class="docs-heading--3">Hide from everyone</h3>
     Add the <a href="https://developer.mozilla.org/en/docs/Web/HTML/Global_attributes/hidden"><code>hidden</code> attribute</a> to dynamically hide content from all users. Remove the attribute to show it again.
   </div>
   <div class="nrk-xs-12of12 nrk-md-3of12" style="padding-right:15px">
-    <h3>Hide from screen readers only</h3>
+    <h3 class="docs-heading--3">Hide from screen readers only</h3>
     Use the <code>aria-hidden="true"</code> attribute to hide content from screen readers while keeping it visually perceivable.
   </div>
   <div class="nrk-xs-12of12 nrk-md-3of12" style="padding-right:15px">
-    <h3>Hide from browsers only</h3>
+    <h3 class="docs-heading--3">Hide from browsers only</h3>
     Use the <code>.nrk-sr</code> class to show content to screen readers only. The content is visually hidden but remains visible for screen readers.
   </div>
   <div class="nrk-xs-12of12 nrk-md-3of12" style="padding-right:15px">
-    <h3>Hide but show on focus</h3>
+    <h3 class="docs-heading--3">Hide but show on focus</h3>
     Use the <code>.nrk-sr-focus</code> class to show content only when in focus. This is practical in keyboard-only interactions such as "skip to content".
   </div>
 </div>

@@ -29,9 +29,16 @@ export default [{
         autoprefixer({ browsers: ['last 1 version', '> .1%', 'ie 9-11'] }),
         header({ header: `/*! @nrk/core-css v${version} - Copyright (c) 2018-${new Date().getFullYear()} NRK */` }),
         mixins({
+          mixinsOnly: false,
           styl: './core-css.styl',
           scss: './core-css.scss',
           less: './core-css.less'
+        }),
+        mixins({
+          mixinsOnly: true,
+          styl: './core-css-mixins-only.styl',
+          scss: './core-css-mixins-only.scss',
+          less: './core-css-mixins-only.less'
         })
       ]
     }),
