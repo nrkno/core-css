@@ -43,7 +43,7 @@ npm install @nrk/core-css
 
 ```scss
 @import '@nrk/core-css/core-css.scss';             // mixins and globals
-@import '@nrk/core-css/core-css-mixins-only.scss'; // ..or mixins and only
+@import '@nrk/core-css/core-css-mixins-only.scss'; // ..or mixins only
 
 .my-button {
   @include nrk-button; // All Core CSS classes are now available as @include mixins
@@ -63,7 +63,7 @@ npm install @nrk/core-css
 
 ```less
 @import '@nrk/core-css/core-css.less';             // mixins and globals
-@import '@nrk/core-css/core-css-mixins-only.less'; // ..or mixins and only
+@import '@nrk/core-css/core-css-mixins-only.less'; // ..or mixins only
 
 .my-button {
   .nrk-button(); // All Core CSS classes are now available as mixins
@@ -79,7 +79,7 @@ npm install @nrk/core-css
 
 ```styl
 @import 'node_modules/@nrk/core-css/core-css.styl'              // mixins and globals
-@import 'node_modules/@nrk/core-css/core-css-mixins-only.styl'; // ..or mixins and only
+@import 'node_modules/@nrk/core-css/core-css-mixins-only.styl'; // ..or mixins only
 
 .my-button {
   nrk-button() // All Core CSS classes are now available as mixins
