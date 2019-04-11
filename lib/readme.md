@@ -376,6 +376,7 @@ functional form layout.
         <legend class="nrk-unset">Checkboxes</legend>
         <label><input class="nrk-input" type="checkbox" value="Checkbox" checked> Checked</label>
         <label><input class="nrk-input" type="checkbox" value="Checkbox" name="indeterminate"> Indeterminate</label>
+        <label><input class="nrk-input" type="checkbox" value="Checkbox"> Unchecked</label>
         <label><input class="nrk-input" type="checkbox" value="Checkbox" disabled> Disabled</label>
       </fieldset>
     </div>
