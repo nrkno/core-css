@@ -245,6 +245,16 @@ the foreground and background color on the element */
   background-size: 35.5% 118%, 85% 99%, 33.7% 118%, 100% auto, 100% auto, 100% auto, 100% auto;
 }
 
+.nrk-input[type="checkbox"]:indeterminate {
+  background-position-x: 0, 100%, 0;
+  background-position-y: 0;
+  background-image:
+    linear-gradient(currentColor 0%, currentColor 100%),
+    linear-gradient(currentColor 0%, currentColor 100%),
+    linear-gradient(currentColor 43%, transparent 44%, transparent 58%, currentColor 59%);
+  background-size: 20% 100%, 20% 100%, 100% auto;
+}
+
 textarea.nrk-input {
   overflow: auto; /* Consistenly show scrollbar */
   resize: vertical; /* Prevent horizontally resizable textarea */

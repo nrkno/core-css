@@ -375,7 +375,7 @@ functional form layout.
       <fieldset class="nrk-unset">
         <legend class="nrk-unset">Checkboxes</legend>
         <label><input class="nrk-input" type="checkbox" value="Checkbox" checked> Checked</label>
-        <label><input class="nrk-input" type="checkbox" value="Checkbox"> Unchecked</label>
+        <label><input class="nrk-input" type="checkbox" value="Checkbox" name="indeterminate"> Indeterminate</label>
         <label><input class="nrk-input" type="checkbox" value="Checkbox" disabled> Disabled</label>
       </fieldset>
     </div>
@@ -392,6 +392,9 @@ functional form layout.
       <textarea class="nrk-input nrk-xs-12of12" placeholder="Textarea text" rows="4"></textarea>
     </label>
 </div>
+<script>
+  document.querySelector('input[name="indeterminate"]').indeterminate = true
+</script>
 ```
 
 Note that `input[type="range"]` is supported yet. For dates and times, use the
