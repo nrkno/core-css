@@ -290,7 +290,7 @@ select.nrk-input:not([multiple]) {
   width: 3em;
   height: 1.5em;
   opacity: .5;
-  transition: .2s;
+  transition: background-position .2s;
 }
 
 .nrk-switch::-ms-check { display: none } /* reset IE checkbox check */
