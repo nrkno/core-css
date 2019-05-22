@@ -124,7 +124,6 @@ button,  a { touch-action: manipulation }
   border-radius: inherit; /* Enable changing border-radius without addressing pseudo element */
   border-width: 1px;
   transition: border .2s; /* Transition border on pesudo only prevents flash of unstyled border */
-  -webkit-backface-visibility: hidden;  /* Simplify webkit rendering, preventing bugs (issue #30) */
 }
 .nrk-button:active { transform: scale(.95) }
 .nrk-button:hover,
