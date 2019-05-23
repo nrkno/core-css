@@ -23,9 +23,6 @@ body, img, svg, a, iframe { margin: 0; border: 0; color: inherit }
 are expected to be a clicked, and does not wait for pinch */
 button,  a { touch-action: manipulation }
 
-/* Polyfill hidden attribute for IE9/10 */
-[hidden] { display: none }
-
 /* Utilities
 ---------------------------------------------------------------- */
 .nrk-truncate {
