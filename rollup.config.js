@@ -26,7 +26,7 @@ export default [{
       sourceMap: true,
       minimize: { reduceIdents: { keyframes: false } },
       plugins: [
-        autoprefixer({ browsers: ['last 1 version', '> .1%', 'ie 9-11'] }),
+        autoprefixer(),
         header({ header: `/*! @nrk/core-css v${version} - Copyright (c) 2018-${new Date().getFullYear()} NRK */` }),
         mixins({
           mixinsOnly: false,
