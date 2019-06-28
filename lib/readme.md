@@ -421,7 +421,7 @@ br + .nrk-switch:checked { color:blue }
 
 ## Switches
 
-Use `.nrk-switch` on an `input[type="checbox"]` element to create switches.
+Use `.nrk-switch` on an `input[type="checkbox"]` element to create switches.
 
 ```html
 <!--demo-->
