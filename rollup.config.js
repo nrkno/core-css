@@ -42,6 +42,6 @@ export default [{
         })
       ]
     }),
-    !process.env.ROLLUP_WATCH || serve('lib')
+    Boolean(process.env.ROLLUP_WATCH) && serve('lib')
   ]
 }]
