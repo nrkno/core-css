@@ -175,6 +175,7 @@ button,  a { touch-action: manipulation }
   font-family: inherit;
   font-size: inherit;
   line-height: 1.5; /* Makes input[type="file"] equal height as other inputs */
+  height: 2.6em;    /* Makes all textual inputs same height. This and line-height is needed for that. */
   box-shadow: 0 0 0 1px rgba(0,0,0,.15); /* IE11 doesn't render border on checkbox and radio */
   border-radius: 4px;
   padding: .5em .7em;
@@ -185,14 +186,10 @@ button,  a { touch-action: manipulation }
 .nrk-input:disabled { opacity: .5; cursor: not-allowed !important }
 .nrk-input[readonly] { opacity: .8; cursor: default !important }
 
-.nrk-input::-ms-clear, /* reset IE search clear */
 .nrk-input::-ms-expand, /* reset IE select arrow */
-.nrk-input::-ms-reveal, /* reset IE password reveal */
 .nrk-input::-ms-check { /* reset IE checkbox check */
   display: none;
 }
-
-.nrk-input[type="file"] { cursor: pointer }
 .nrk-input::-ms-value { /* reset IE input[type="file"] text style  */
   background: none;
   color: inherit;
@@ -202,13 +199,7 @@ button,  a { touch-action: manipulation }
   border: 0;
 }
 
-/* hides number arrows in FireFox */
-.nrk-input[type="number"] { -moz-appearance: textfield }
-
-/* hides number arrows in chrome, safari */
-.nrk-input::-webkit-outer-spin-button,
-.nrk-input::-webkit-inner-spin-button { -webkit-appearance: none }
-
+.nrk-input[type="file"] { cursor: pointer }
 
 .nrk-input[type="radio"] { border-radius: 100% }
 .nrk-input[type="radio"],
@@ -251,13 +242,18 @@ the foreground and background color on the element */
 }
 
 textarea.nrk-input {
+  height: auto;
   overflow: auto; /* Consistenly show scrollbar */
   resize: vertical; /* Prevent horizontally resizable textarea */
   vertical-align: top;
   line-height: inherit;
 }
 
-select.nrk-input[multiple] { vertical-align: top }
+select.nrk-input[multiple] {
+  height: auto;
+  vertical-align: top;
+}
+
 select.nrk-input:not([multiple]) {
   background-image:
     linear-gradient(45deg, transparent 46%, currentcolor 47%, currentcolor 49%, transparent 51%),

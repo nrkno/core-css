@@ -332,6 +332,10 @@ functional form layout.
       <input class="nrk-input nrk-xs-12of12" type="search" placeholder="Search">
     </label>
     <label class="nrk-xs-12of12 nrk-lg-4of12">
+      Time
+      <input class="nrk-input nrk-xs-12of12" type="time" placeholder="Time">
+    </label>
+    <label class="nrk-xs-12of12 nrk-lg-4of12">
       Number
       <input class="nrk-input nrk-xs-12of12" type="number" placeholder="Number">
     </label>
