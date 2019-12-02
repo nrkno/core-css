@@ -22,7 +22,7 @@
     "url": "git+https://github.com/nrkno/core-css.git"
   },
   "devDependencies": {
-    "autoprefixer": "9.7.1",
+    "autoprefixer": "9.7.3",
     "postcss": "7.0.23",
     "postcss-classes-to-mixins": "2.0.1",
     "postcss-header": "1.0.0",
