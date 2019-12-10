@@ -199,8 +199,14 @@ button,  a { touch-action: manipulation }
   border: 0;
 }
 
-.nrk-input[type="file"] { cursor: pointer }
+ /* hides number arrows in FireFox */
+.nrk-input[type="number"] { -moz-appearance: textfield }
 
+/* hides number arrows in chrome, safari */
+.nrk-input::-webkit-outer-spin-button,
+.nrk-input::-webkit-inner-spin-button { -webkit-appearance: none }
+
+.nrk-input[type="file"] { cursor: pointer }
 .nrk-input[type="radio"] { border-radius: 100% }
 .nrk-input[type="radio"],
 .nrk-input[type="checkbox"] {
