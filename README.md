@@ -1,4 +1,5 @@
-# @nrk/core-css ![Release](https://img.shields.io/github/release/nrkno/core-css.svg)
+# @nrk/core-css
+
 > Base styling and utilities for all NRK projects.
 > `@nrk/core-css` exposes a set of class names and mixins to ease creating backwards compatible layouts and standard NRK styling. The code is built on BEM-conventions and is namespaced `nrk-` to play nice with existing projects.
 
