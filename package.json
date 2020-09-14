@@ -26,7 +26,7 @@
     "postcss": "^7.0.23",
     "postcss-classes-to-mixins": "^2.0.1",
     "postcss-header": "^2.0.0",
-    "rollup": "2.7.2",
+    "rollup": "2.26.11",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-serve": "^1.0.1",
     "standard": "^14.3.1"
